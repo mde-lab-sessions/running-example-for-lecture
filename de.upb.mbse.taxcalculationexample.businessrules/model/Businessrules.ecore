@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="businessrules" nsURI="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+    nsPrefix="de.upb.mbse.taxcalculationexample.businessrules">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="TODO: Add documentation for businessrules. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Bank">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kunden" upperBound="-1"
+        eType="#//Kunde" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fonds" upperBound="-1"
+        eType="#//Fond" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depots" upperBound="-1"
+        eType="#//Depot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finanzaemter" upperBound="-1"
+        eType="#//Finanzamt" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Finanzamt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steuerzahler" upperBound="-1"
+        eType="#//Kunde" changeable="false" eOpposite="#//Kunde/finanzamt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Depot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kunden" lowerBound="1"
+        upperBound="-1" eType="#//Kunde" changeable="false" eOpposite="#//Kunde/depots"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Anteil">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fond" lowerBound="1" eType="#//Fond"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umsaetze" upperBound="-1"
+        eType="#//Umsatz"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fond">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Kunde" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umsaetze" upperBound="-1"
+        eType="#//Umsatz" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depots" lowerBound="1"
+        upperBound="-1" eType="#//Depot" eOpposite="#//Depot/kunden"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finanzamt" lowerBound="1"
+        eType="#//Finanzamt" eOpposite="#//Finanzamt/steuerzahler"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Umsatz" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Kauf" eSuperTypes="#//Umsatz"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Verkauf" eSuperTypes="#//Umsatz"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Zinsen" eSuperTypes="#//Umsatz"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Betrieb" eSuperTypes="#//Kunde"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrivatKunde" abstract="true" eSuperTypes="#//Kunde"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Steuerauslaender" abstract="true" eSuperTypes="#//PrivatKunde"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Steuerinlaender" abstract="true" eSuperTypes="#//PrivatKunde">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hatAltersVorsorge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>
