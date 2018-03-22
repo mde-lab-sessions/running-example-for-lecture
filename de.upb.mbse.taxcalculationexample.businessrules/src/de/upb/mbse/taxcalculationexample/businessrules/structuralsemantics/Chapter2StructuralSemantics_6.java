@@ -28,16 +28,16 @@ public class Chapter2StructuralSemantics_6
 	public void setup() throws Exception {
 		api = getAPI(DeupbmbsetaxcalculationexamplebusinessrulesstructuralsemanticsAPI.class);
 	}
-	
+
 	@Test
 	public void gueltigeDepotsUndUmsaetze() {
-		assertTrue("Constraint is not violated",
-				api.premise()
-				   .findMatches()
-				   .stream()
-				   .allMatch(m_p ->api.conclusion()
-						   			  .bind(m_p)
-						   			  .findAnyMatch()
-						   			  .isPresent()));
+		assertTrue("Constraint is not violated", //
+				api.premise()//
+						.findMatches()//
+						.stream()//
+						.allMatch(m_p -> api.conclusion()//
+								.bind(m_p)//
+								.findAnyMatch()//
+								.isPresent()));
 	}
 }
