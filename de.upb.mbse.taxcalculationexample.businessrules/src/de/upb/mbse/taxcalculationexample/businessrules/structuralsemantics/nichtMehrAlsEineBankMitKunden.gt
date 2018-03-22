@@ -1,0 +1,26 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+
+rule nichtMehrAlsEineBankMitKunden() {	
+	k1:Kunde
+	k2:Kunde
+	
+	b1:Bank {
+		-kunden->k1
+	}
+	
+	b2:Bank {
+		-kunden->k2
+	}
+}
+
+rule nichtMehrAlsEineBankMitKundenEineBankIstKunde() {
+	k1:Kunde
+	
+	b1:Bank {
+		-kunden->k1
+	}
+	
+	b2:Bank {
+		-kunden->b1
+	}
+}

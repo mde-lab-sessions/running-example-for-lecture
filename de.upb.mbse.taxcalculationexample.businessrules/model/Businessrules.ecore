@@ -5,13 +5,13 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This is a basic metamodel for the domain of tax calculation. "/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Bank">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bank" eSuperTypes="#//Betrieb">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="kunden" upperBound="-1"
         eType="#//Kunde" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fonds" upperBound="-1"
         eType="#//Fond" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depots" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allDepots" upperBound="-1"
         eType="#//Depot" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="finanzaemter" upperBound="-1"
         eType="#//Finanzamt" containment="true"/>
@@ -53,8 +53,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Zinsen" eSuperTypes="#//Umsatz"/>
   <eClassifiers xsi:type="ecore:EClass" name="Betrieb" eSuperTypes="#//Kunde"/>
   <eClassifiers xsi:type="ecore:EClass" name="PrivatKunde" abstract="true" eSuperTypes="#//Kunde"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Steuerauslaender" abstract="true" eSuperTypes="#//PrivatKunde"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Steuerinlaender" abstract="true" eSuperTypes="#//PrivatKunde">
+  <eClassifiers xsi:type="ecore:EClass" name="Steuerauslaender" eSuperTypes="#//PrivatKunde"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Steuerinlaender" eSuperTypes="#//PrivatKunde">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hatAltersVorsorge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1,0 +1,5 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+
+rule jedesModellMussEineBankHaben() {
+	bank:Bank
+}
