@@ -18,14 +18,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Finanzamt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steuerzahler" upperBound="-1"
-        eType="#//Kunde" changeable="false" eOpposite="#//Kunde/finanzamt"/>
+        eType="#//Kunde" eOpposite="#//Kunde/finanzamt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Depot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="kunden" lowerBound="1"
-        upperBound="-1" eType="#//Kunde" changeable="false" eOpposite="#//Kunde/depots"/>
+        upperBound="-1" eType="#//Kunde" eOpposite="#//Kunde/depots"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="anteile" lowerBound="1"
-        upperBound="-1" eType="#//Anteil" changeable="false" containment="true"/>
+        upperBound="-1" eType="#//Anteil" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Anteil">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.upb.mbse.taxcalculationexample.businessrules:Bank
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:de.upb.mbse.taxcalculationexample.businessrules="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+    bic="NORSDE51">
+  <kunden xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Steuerinlaender"
+      id="42"
+      firstName="Homer"
+      lastName="Simpson"
+      depots="//@allDepots.0">
+    <umsaetze
+        xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Verkauf"/>
+  </kunden>
+  <fonds/>
+  <allDepots
+      number="54321"
+      kunden="//@kunden.0">
+    <anteile
+        amount="7"
+        fond="//@fonds.0"
+        umsaetze="//@kunden.0/@umsaetze.0"/>
+  </allDepots>
+  <allDepots
+      number="12345">
+    <anteile
+        amount="5"
+        fond="//@fonds.0"
+        umsaetze="//@kunden.0/@umsaetze.0"/>
+  </allDepots>
+</de.upb.mbse.taxcalculationexample.businessrules:Bank>

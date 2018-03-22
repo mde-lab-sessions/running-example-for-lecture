@@ -15,17 +15,14 @@
       <umsaetze
           xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Verkauf"/>
     </kunden>
-    <kunden
-        xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Bank"
-        bic="HELADEF1822">
-      <kunden
+  </de.upb.mbse.taxcalculationexample.businessrules:Bank>   
+  <de.upb.mbse.taxcalculationexample.businessrules:Bank
+      bic="HELADEF1822">
+       <kunden
           xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Steuerinlaender"
           id="43"
           firstName="Marge"
           lastName="Simpson"
           hatAltersVorsorge="true"/>
-    </kunden>
   </de.upb.mbse.taxcalculationexample.businessrules:Bank>
-  <de.upb.mbse.taxcalculationexample.businessrules:Bank
-      bic="HELADEF1822"/>
 </xmi:XMI>
