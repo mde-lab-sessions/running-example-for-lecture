@@ -1,33 +1,17 @@
 package de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.junit.Before;
 import org.junit.Test;
 
-import businessrules.impl.BusinessrulesPackageImpl;
-import de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.DeupbmbsetaxcalculationexamplebusinessrulesstructuralsemanticsAPI;
+public class Chapter2StructuralSemantics_1 extends StructuralSemanticsTest {
 
-public class Chapter2StructuralSemantics_1
-		extends GTApp<DeupbmbsetaxcalculationexamplebusinessrulesstructuralsemanticsAPI> {
-
-	private DeupbmbsetaxcalculationexamplebusinessrulesstructuralsemanticsAPI api;
-
-	protected void registerUserMetamodels(ResourceSet rs) {
-		BusinessrulesPackageImpl.init();
-	}
-
-	protected void loadModels(ResourceSet rs) {
-		rs.getResource(URI.createPlatformResourceURI(//
-				"de.upb.mbse.taxcalculationexample.businessrules/instances/kundeMitZweiUmsaetzen.xmi", true), true);
-	}
-
-	@Before
-	public void setup() throws Exception {
-		api = getAPI(DeupbmbsetaxcalculationexamplebusinessrulesstructuralsemanticsAPI.class);
+	@Override
+	protected void loadModels() {
+		loadModel(URI.createPlatformResourceURI(INSTANCES + "/kundeMitZweiUmsaetzen.xmi", true));
 	}
 
 	@Test
