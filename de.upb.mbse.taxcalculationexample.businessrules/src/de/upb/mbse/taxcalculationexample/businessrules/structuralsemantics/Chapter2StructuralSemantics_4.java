@@ -15,7 +15,7 @@ public class Chapter2StructuralSemantics_4 extends Chapter2StructuralSemantics_3
 	@Test
 	@Override
 	public void keineZweiBankenMitKundenComplete() {
-		assertFalse("The constraint is not violated", api.nichtMehrAlsEineBankMitKunden().findAnyMatch().isPresent()
-				|| api.nichtMehrAlsEineBankMitKundenEineBankIstKunde().findAnyMatch().isPresent());
+		assertFalse("The constraint is not violated", api.nichtMehrAlsEineBankMitKunden().hasMatches()
+				|| api.nichtMehrAlsEineBankMitKundenEineBankIstKunde().hasMatches());
 	}
 }
