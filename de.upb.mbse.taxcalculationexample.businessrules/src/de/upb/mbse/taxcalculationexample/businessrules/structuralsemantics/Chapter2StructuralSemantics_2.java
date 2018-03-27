@@ -14,6 +14,6 @@ public class Chapter2StructuralSemantics_2 extends StructuralSemanticsTest {
 
 	@Test
 	public void keineZweiBankenMitKunden() {
-		assertTrue("The constraint should be violated", api.nichtMehrAlsEineBankMitKunden().findAnyMatch().isPresent());
+		assertTrue("The constraint should be violated", api.nichtMehrAlsEineBankMitKunden().hasMatches());
 	}
 }

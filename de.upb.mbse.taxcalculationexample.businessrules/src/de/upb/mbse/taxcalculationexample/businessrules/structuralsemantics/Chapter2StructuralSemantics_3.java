@@ -22,14 +22,12 @@ public class Chapter2StructuralSemantics_3 extends StructuralSemanticsTest {
 			System.out.println(m.getK2());
 		});
 
-		// FIXME[Patrick]: the match is non-injective as B2 and K2 are mapped to the
-		// same bank
-		assertFalse("The constraint is not violated", api.nichtMehrAlsEineBankMitKunden().findAnyMatch().isPresent());
+		assertFalse("The constraint is not violated", api.nichtMehrAlsEineBankMitKunden().hasMatches());
 	}
 
 	@Test
 	public void keineZweiBankenMitKundenComplete() {
-		assertTrue("The constraint is now violated", api.nichtMehrAlsEineBankMitKunden().findAnyMatch().isPresent()
-				|| api.nichtMehrAlsEineBankMitKundenEineBankIstKunde().findAnyMatch().isPresent());
+		assertTrue("The constraint is now violated", api.nichtMehrAlsEineBankMitKunden().hasMatches()
+				|| api.nichtMehrAlsEineBankMitKundenEineBankIstKunde().hasMatches());
 	}
 }

@@ -20,7 +20,6 @@ public class Chapter2StructuralSemantics_6 extends StructuralSemanticsTest {
 						.stream()//
 						.allMatch(m_p -> api.conclusion()//
 								.bind(m_p)//
-								.findAnyMatch()//
-								.isPresent()));
+								.hasMatches()));
 	}
 }

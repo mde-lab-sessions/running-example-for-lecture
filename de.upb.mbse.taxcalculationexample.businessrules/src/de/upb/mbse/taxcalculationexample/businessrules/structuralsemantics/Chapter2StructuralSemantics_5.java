@@ -15,13 +15,13 @@ public class Chapter2StructuralSemantics_5 extends StructuralSemanticsTest {
 
 	@Test
 	public void ungueltigeDepotsUndUmsaetze() {
-		assertFalse("Constraint is violated", api.premise().findMatches().stream()
-				.allMatch(m_p -> api.conclusion().bind(m_p).findAnyMatch().isPresent()));
+		assertFalse("Constraint is violated",
+				api.premise().findMatches().stream().allMatch(m_p -> api.conclusion().bind(m_p).hasMatches()));
 	}
 
 	@Test
 	public void ungueltigeDepotsUndUmsaetzeNonCommutative() {
 		assertTrue("Constraint is (erroneously) not violated",
-				api.premise().findMatches().stream().allMatch(m_p -> api.conclusion().findAnyMatch().isPresent()));
+				api.premise().findMatches().stream().allMatch(m_p -> api.conclusion().hasMatches()));
 	}
 }
