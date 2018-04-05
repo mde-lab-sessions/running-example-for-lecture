@@ -1,34 +1,34 @@
 import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
 
-rule premise() {
-	k:Kunde {
-		-umsaetze->u
+pattern premise() {
+	k: Kunde {
+		-umsaetze -> u
 	}
-	
-	u:Umsatz
-	
-	a:Anteil {
-		-umsaetze->u
+
+	u: Umsatz
+
+	a: Anteil {
+		-umsaetze -> u
 	}
-	
-	d:Depot {
-		-anteile->a
+
+	d: Depot {
+		-anteile -> a
 	}
 }
 
-rule conclusion(){
-	k:Kunde {
-		-umsaetze->u
-		-depots->d
+pattern conclusion() {
+	k: Kunde {
+		-umsaetze -> u
+		-depots -> d
 	}
-	
-	u:Umsatz
-	
-	a:Anteil {
-		-umsaetze->u
+
+	u: Umsatz
+
+	a: Anteil {
+		-umsaetze -> u
 	}
-	
-	d:Depot {
-		-anteile->a
+
+	d: Depot {
+		-anteile -> a
 	}
 }
