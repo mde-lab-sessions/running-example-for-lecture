@@ -1,11 +1,12 @@
 import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
 
-rule kundeMitMindestensZweiUmsaetzen() {
-	umsatz2:Umsatz
-	umsatz1:Umsatz
-	
-	kunde:Kunde {
-		-umsaetze->umsatz1
-		-umsaetze->umsatz2
-	}	
+pattern kundeMitMindestensZweiUmsaetzen() {
+	umsatz2: Umsatz
+
+	umsatz1: Umsatz
+
+	kunde: Kunde {
+		-umsaetze -> umsatz1
+		-umsaetze -> umsatz2
+	}
 }
