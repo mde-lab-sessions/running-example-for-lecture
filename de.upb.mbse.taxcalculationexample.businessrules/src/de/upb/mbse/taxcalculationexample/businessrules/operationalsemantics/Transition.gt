@@ -1,0 +1,215 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+
+abstract rule transition {
+	an: An
+
+	l: Berechnungslauf {
+		-zustand -> an
+		-regeln -> r
+		-bank -> b
+		++ -ausfuehrungen -> a
+	}
+
+	++ a: Ausfuehrung {
+		++ -vorgemerkt -> u
+		++ -aktion -> ersteAktion
+	}
+
+	b: Bank {
+		-kunden -> k
+	}
+
+	k: Kunde {
+		-umsaetze -> u
+	}
+
+	u: Umsatz
+
+	r: Regelmenge {
+		-regeln -> v
+	}
+
+	v: Verrechnungsregel {
+		-vorbedingung -> pre
+		-aktionen -> ersteAktion
+	}
+
+	ersteAktion: Aktion
+
+	pre: Vorbedingung {
+		-kunde -> preK
+		-umsatz -> preU
+	}
+
+	preK: Kunde
+
+	preU: Umsatz
+}
+
+condition istErsteAktion = forbid aktionHatVorgaenger
+
+pattern aktionHatVorgaenger {
+	ersteAktion: Aktion
+
+	vorgaenger: Aktion {
+		-next -> ersteAktion
+	}
+}
+
+pattern zweiGleicheAusf {
+	ersteAktion:Aktion
+	na:Ausfuehrung {
+		-aktion->ersteAktion
+	}
+}
+
+// Faelle fuer Umsatz
+abstract pattern gewinn {
+	u: Gewinn
+
+	preU: Gewinn
+}
+
+abstract pattern verlust {
+	u: Verlust
+
+	preU: Verlust
+}
+
+abstract pattern zinsen {
+	u: Zinsen
+
+	preU: Zinsen
+}
+
+// Faelle fuer Kunde
+abstract pattern steuerinlaenderOhneAltersvorsorge {
+	k: Steuerinlaender {
+		.hatAltersVorsorge == false
+	}
+
+	preK: Steuerinlaender {
+		.hatAltersVorsorge == false
+	}
+}
+
+abstract pattern steuerinlaenderMitAltersvorsorge {
+	k: Steuerinlaender {
+		.hatAltersVorsorge == true
+	}
+
+	preK: Steuerinlaender {
+		.hatAltersVorsorge == true
+	}
+}
+
+abstract pattern steuerauslaender {
+	k: Steuerauslaender
+
+	preK: Steuerauslaender
+}
+
+abstract pattern bank {
+	k: Bank
+
+	preK: Bank
+}
+
+abstract pattern betrieb {
+	k: Betrieb
+
+	preK: Betrieb
+}
+
+// Konkrete Regeln
+rule ausfuehren {
+	a: Ausfuehrung {
+		-- -vorgemerkt -> u
+		++ -umsatz -> u
+	}
+
+	u: Umsatz
+
+	k: Kunde {
+		-umsaetze -> u
+	}
+}
+when keinenKonflikt
+
+condition keinenKonflikt = forbid ausfuehrung
+
+abstract pattern ausfuehrung {
+	na: Ausfuehrung {
+		-vorgemerkt -> u
+	}
+
+	a: Ausfuehrung {
+		-vorgemerkt -> u
+	}
+
+	u: Umsatz
+}
+
+condition anwendbar = check istErsteAktion && forbid zweiGleicheAusf
+
+rule gewinnSteuerinlaender
+refines transition, gewinn, steuerinlaenderOhneAltersvorsorge
+when anwendbar
+
+rule verlustSteuerinlaender
+refines transition, verlust, steuerinlaenderOhneAltersvorsorge
+when anwendbar
+
+rule zinsenSteuerinlaender
+refines transition, zinsen, steuerinlaenderOhneAltersvorsorge
+when anwendbar
+
+rule gewinnSteuerinlaenderMitAv
+refines transition, gewinn, steuerinlaenderMitAltersvorsorge
+when anwendbar
+
+rule verlustSteuerinlaenderMitAv
+refines transition, verlust, steuerinlaenderMitAltersvorsorge
+when anwendbar
+
+rule zinsenSteuerinlaenderMitAv
+refines transition, zinsen, steuerinlaenderMitAltersvorsorge
+when anwendbar
+
+rule gewinnSteuerauslaender
+refines transition, gewinn, steuerauslaender
+when anwendbar
+
+rule verlustSteuerauslaender
+refines transition, verlust, steuerauslaender
+when anwendbar
+
+rule zinsenSteuerauslaender
+refines transition, zinsen, steuerauslaender
+when anwendbar
+
+rule gewinnBank
+refines transition, gewinn, bank
+when anwendbar
+
+rule verlustBank
+refines transition, verlust, bank
+when anwendbar
+
+rule zinsenBank
+refines transition, zinsen, bank
+when anwendbar
+
+condition keineBank = forbid bank && check anwendbar
+
+rule gewinnBetrieb
+refines transition, gewinn, betrieb
+when keineBank
+
+rule verlustBetrieb
+refines transition, verlust, betrieb
+when keineBank
+
+rule zinsenBetrieb
+refines transition, zinsen, betrieb
+when keineBank

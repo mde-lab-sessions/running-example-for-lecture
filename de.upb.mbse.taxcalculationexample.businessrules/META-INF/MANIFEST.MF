@@ -1,12 +1,22 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.businessrules
 Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.businessrules;s
  ingleton:=true
 Export-Package: businessrules,
  businessrules.impl,
  businessrules.util,
- de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api,
- de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.matches,
- de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.rules
+ de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.a
+ pi,
+ de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.a
+ pi.matches,
+ de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.a
+ pi.rules,
+ de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.
+ api,
+ de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.
+ api.matches,
+ de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.
+ api.rules
 Bundle-Name: de.upb.mbse.taxcalculationexample.businessrules
 Bundle-Version: 0.0.1.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
@@ -19,4 +29,3 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: 
-Automatic-Module-Name: de.upb.mbse.taxcalculationexample.businessrules

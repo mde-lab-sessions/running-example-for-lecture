@@ -1,0 +1,48 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+
+abstract rule stop {
+	lauf:Berechnungslauf {
+		-- -zustand->an
+		-bank->bank
+	}
+	an:An
+	bank:Bank
+}
+
+rule terminateSuccess refines stop {
+	lauf:Berechnungslauf {
+		++ -zustand->aus
+		-zustaende->aus
+	}
+	aus:Aus
+} when keineUmsaetzeMehr
+
+condition keineUmsaetzeMehr = forbid umsatz
+
+pattern umsatz {
+	bank:Bank {
+		-kunden->kunde
+	}
+	
+	kunde:Kunde {
+		-umsaetze->umsatz
+	}
+	umsatz:Umsatz
+}
+
+pattern success {
+	lauf:Berechnungslauf {
+		-zustand->aus
+	}
+	aus:Aus
+}
+
+rule terminateError refines stop {
+	lauf:Berechnungslauf {
+		++ -zustand->f
+		-zustaende->f
+	}
+	f:Fehler
+} when uebrigeUmsaetze
+
+condition uebrigeUmsaetze = enforce umsatz

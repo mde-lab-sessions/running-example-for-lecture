@@ -19,6 +19,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Finanzamt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steuerzahler" upperBound="-1"
         eType="#//Kunde" eOpposite="#//Kunde/finanzamt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="auslaendisch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Depot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -50,6 +51,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Umsatz" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Kauf" eSuperTypes="#//Umsatz"/>
   <eClassifiers xsi:type="ecore:EClass" name="Verkauf" eSuperTypes="#//Umsatz"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gewinn" eSuperTypes="#//Verkauf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Verlust" eSuperTypes="#//Verkauf"/>
   <eClassifiers xsi:type="ecore:EClass" name="Zinsen" eSuperTypes="#//Umsatz"/>
   <eClassifiers xsi:type="ecore:EClass" name="Betrieb" eSuperTypes="#//Kunde"/>
   <eClassifiers xsi:type="ecore:EClass" name="PrivatKunde" abstract="true" eSuperTypes="#//Kunde"/>
@@ -57,4 +60,55 @@
   <eClassifiers xsi:type="ecore:EClass" name="Steuerinlaender" eSuperTypes="#//PrivatKunde">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hatAltersVorsorge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regelmenge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bank" lowerBound="1" eType="#//Bank"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regeln" upperBound="-1"
+        eType="#//Verrechnungsregel" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Verrechnungsregel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vorbedingung" lowerBound="1"
+        eType="#//Vorbedingung" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aktionen" upperBound="-1"
+        eType="#//Aktion" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vorbedingung">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kunde" lowerBound="1" eType="#//Kunde"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umsatz" lowerBound="1"
+        eType="#//Umsatz" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Aktion" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Aktion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SteuerBerechnen" eSuperTypes="#//Aktion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SteuerAbziehen" eSuperTypes="#//Aktion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InSteuertopfEinstellen" eSuperTypes="#//Aktion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InVerlustverrechnungstopfEinstellen"
+      eSuperTypes="#//Aktion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ausweisen" eSuperTypes="#//Aktion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="an" lowerBound="1" eType="#//Finanzamt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Berechnungslauf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bank" lowerBound="1" eType="#//Bank"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regeln" lowerBound="1"
+        eType="#//Regelmenge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zustand" lowerBound="1"
+        eType="#//Zustand"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zustaende" lowerBound="1"
+        upperBound="-1" eType="#//Zustand" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ausfuehrungen" upperBound="-1"
+        eType="#//Ausfuehrung" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ausfuehrung">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aktion" lowerBound="1"
+        eType="#//Aktion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umsatz" lowerBound="1"
+        eType="#//Umsatz" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vorgemerkt" eType="#//Umsatz"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Zustand" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="An" eSuperTypes="#//Zustand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fehler" eSuperTypes="#//Zustand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Aus" eSuperTypes="#//Zustand"/>
 </ecore:EPackage>

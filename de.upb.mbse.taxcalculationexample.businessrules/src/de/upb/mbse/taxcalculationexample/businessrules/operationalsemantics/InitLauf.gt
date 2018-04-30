@@ -1,0 +1,35 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+
+rule init {
+	b: Bank
+
+	r: Regelmenge {
+		-bank -> b
+	}
+
+	++l: Berechnungslauf {
+		++ -bank -> b
+		++ -regeln -> r
+		++ -zustaende -> an
+		++ -zustaende -> aus
+		++ -zustaende -> f
+		++ -zustand -> an
+	}
+
+	++ f: Fehler
+
+	++ an: An
+
+	++ aus: Aus
+}
+when keinAndererLauf
+
+condition keinAndererLauf = forbid berechnungsLauf
+
+pattern berechnungsLauf {
+	ll: Berechnungslauf {
+		-bank -> b
+	}
+
+	b: Bank
+}
