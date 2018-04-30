@@ -4,3 +4,4 @@
 !/**/.keep*
 /model/*.genmodel
 /src-gen/*
+/src-gen
