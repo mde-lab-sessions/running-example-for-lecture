@@ -150,7 +150,7 @@ abstract pattern ausfuehrung {
 	u: Umsatz
 }
 
-condition anwendbar = check istErsteAktion && forbid zweiGleicheAusf
+condition anwendbar = istErsteAktion && forbid zweiGleicheAusf
 
 rule gewinnSteuerinlaender
 refines transition, gewinn, steuerinlaenderOhneAltersvorsorge
@@ -200,7 +200,7 @@ rule zinsenBank
 refines transition, zinsen, bank
 when anwendbar
 
-condition keineBank = forbid bank && check anwendbar
+condition keineBank = forbid bank && anwendbar
 
 rule gewinnBetrieb
 refines transition, gewinn, betrieb
