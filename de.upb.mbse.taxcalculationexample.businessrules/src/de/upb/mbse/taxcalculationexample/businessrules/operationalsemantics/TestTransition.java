@@ -1,6 +1,7 @@
 package de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import businessrules.Aus;
 import businessrules.Berechnungslauf;
 import businessrules.Fehler;
+import de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.api.matches.CleanUpMatch;
 import de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.api.matches.InitMatch;
 import de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.api.rules.AusfuehrenRule;
 import de.upb.mbse.taxcalculationexample.businessrules.operationalsemantics.api.rules.GewinnSteuerinlaenderRule;
@@ -148,5 +150,18 @@ public class TestTransition extends OperationalSemanticsTest {
 		// Assert result
 		Optional<Berechnungslauf> result = api.berechnungsLauf().findAnyMatch().map(l -> l.getLl());
 		assertTrue(result.isPresent() && result.get().getZustand() instanceof Aus);
+	}
+	
+	@Test
+	public void testCleanUpSPO_DPO(){
+		api.init().apply();
+
+		api.setDPO();
+		Optional<CleanUpMatch> result = api.cleanUp().apply();
+		assertFalse(result.isPresent());
+		
+		api.setSPO();
+		result = api.cleanUp().apply();
+		assertTrue(result.isPresent());
 	}
 }

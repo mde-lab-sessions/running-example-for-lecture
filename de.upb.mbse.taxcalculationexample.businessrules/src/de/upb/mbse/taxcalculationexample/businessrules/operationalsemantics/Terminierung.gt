@@ -46,3 +46,7 @@ rule terminateError refines stop {
 } when uebrigeUmsaetze
 
 condition uebrigeUmsaetze = enforce umsatz
+
+rule cleanUp {
+	-- l:Berechnungslauf
+}
