@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.upb.mbse.taxcalculationexample.businessrules.cs.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.businessrules.cs.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.upb.mbse.taxcalculationexample.businessrules.cs,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.upb.mbse.taxcalculationexample.ide.contentassist.antlr,
+ de.upb.mbse.taxcalculationexample.ide.contentassist.antlr.internal
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.businessrules.cs.ide
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="taxCalculationRules" nsURI="http://www.upb.de/mbse/taxcalculationexample/TaxCalculationRules"
+    nsPrefix="taxCalculationRules">
+  <eClassifiers xsi:type="ecore:EClass" name="RuleSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bank" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kunde" eType="#//Kunde"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umsatz" eType="#//Umsatz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstAction" eType="#//Step"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Step" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Kunde">
+    <eLiterals name="STEUERINLAENDER" literal="STEUERINLAENDER"/>
+    <eLiterals name="STEUERINLAENDER_MIT_ALTERSVORSORGE" value="1" literal="STEUERINLAENDER_MIT_ALTERSVORSORGE"/>
+    <eLiterals name="STEUERAUSLAENDER" value="2" literal="STEUERAUSLAENDER"/>
+    <eLiterals name="BANKEN" value="3" literal="BANKEN"/>
+    <eLiterals name="SONSTIGER_BETRIEB" value="4" literal="SONSTIGER_BETRIEB"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Umsatz">
+    <eLiterals name="GEWINN" literal="GEWINN"/>
+    <eLiterals name="VERLUST" value="1" literal="VERLUST"/>
+    <eLiterals name="ZINSEN" value="2" literal="ZINSEN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Action">
+    <eLiterals name="SteuerBerechnen" literal="SteuerBerechnen"/>
+    <eLiterals name="SteuerAbziehen" value="1" literal="SteuerAbziehen"/>
+    <eLiterals name="InSteuertopfEinstellen" value="2" literal="InSteuertopfEinstellen"/>
+    <eLiterals name="InVerlustverrechnungstopfEinstellen" value="3" literal="InVerlustverrechnungstopfEinstellen"/>
+    <eLiterals name="Ausweisen" value="4" literal="Ausweisen"/>
+  </eClassifiers>
+</ecore:EPackage>

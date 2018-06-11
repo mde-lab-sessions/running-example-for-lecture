@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.upb.mbse.taxcalculationexample.businessrules.cs
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.businessrules.cs; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.13.0",
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib;bundle-version="2.13.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.upb.mbse.taxcalculationexample,
+ de.upb.mbse.taxcalculationexample.validation,
+ de.upb.mbse.taxcalculationexample.serializer,
+ de.upb.mbse.taxcalculationexample.services,
+ de.upb.mbse.taxcalculationexample.parser.antlr.internal,
+ de.upb.mbse.taxcalculationexample.parser.antlr,
+ de.upb.mbse.taxcalculationexample.scoping,
+ de.upb.mbse.taxcalculationexample.generator,
+ de.upb.mbse.taxcalculationexample.taxCalculationRules.impl,
+ de.upb.mbse.taxcalculationexample.taxCalculationRules,
+ de.upb.mbse.taxcalculationexample.taxCalculationRules.util
+Import-Package: org.apache.log4j
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.businessrules.cs

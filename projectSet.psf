@@ -2,5 +2,20 @@
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
 <project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs.ide"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs.ui"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.reporting"/>
 </provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1523815011248_2" label="abstractSyntax" name="abstractSyntax">
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1523815020814_3" label="concreteSyntax" name="concreteSyntax">
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ide" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1528620905882_4" label="modelTransformations" name="modelTransformations">
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
 </psf>

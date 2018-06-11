@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.upb.mbse.taxcalculationexample.reporting
+Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.reporting;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+Export-Package: reporting.impl,
+ reporting.util,
+ reporting
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.reporting
+

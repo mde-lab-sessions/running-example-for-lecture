@@ -1,0 +1,40 @@
+grammar de.upb.mbse.taxcalculationexample.TaxCalculationRules with org.eclipse.xtext.common.Terminals
+generate taxCalculationRules "http://www.upb.de/mbse/taxcalculationexample/TaxCalculationRules"
+
+RuleSet: "Verrechnungsregeln->" bank=STRING "{" rules+=Rule+ "}";
+
+Rule:
+	"Pre" "[" 
+		kunde=Kunde 
+		umsatz=Umsatz 
+	"]"
+	"Post" "["
+		firstAction=Step?
+	"]"
+;
+
+Step:
+	name=Action (next=Step)?
+;
+
+enum Kunde:
+	STEUERINLAENDER |
+	STEUERINLAENDER_MIT_ALTERSVORSORGE |
+	STEUERAUSLAENDER |
+	BANKEN |
+	SONSTIGER_BETRIEB
+;
+
+enum Umsatz :
+	GEWINN |
+	VERLUST |
+	ZINSEN
+;
+
+enum Action :
+	SteuerBerechnen |
+	SteuerAbziehen |
+	InSteuertopfEinstellen |
+	InVerlustverrechnungstopfEinstellen |
+	Ausweisen
+;
