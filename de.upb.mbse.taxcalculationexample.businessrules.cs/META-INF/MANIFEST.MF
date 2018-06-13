@@ -7,11 +7,11 @@ Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.businessrules.cs; singlet
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0",
- org.eclipse.xtext.xbase.lib;bundle-version="2.13.0",
+ org.eclipse.equinox.common,
+ org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
  org.eclipse.xtext.util,
- org.eclipse.xtend.lib;bundle-version="2.13.0",
+ org.eclipse.xtend.lib,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
