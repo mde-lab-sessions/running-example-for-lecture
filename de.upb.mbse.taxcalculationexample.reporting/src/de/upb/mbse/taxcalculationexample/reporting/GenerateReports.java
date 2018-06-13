@@ -28,7 +28,7 @@ public class GenerateReports {
 
 		ReportingJob job = (ReportingJob) jobResource.getContents().get(0);
 
-		File output = new File("./instances/reports" + LocalDateTime.now());
+		File output = new File("./instances/reports" + LocalDateTime.now().toString().replace(":", "_"));
 		output.mkdir();
 
 		job.getReports().forEach(report -> {
