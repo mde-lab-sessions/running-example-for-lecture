@@ -17,7 +17,7 @@ class ReportGenerator {
 		'''
 			#«r.header»
 			
-			«handleSalutation(r.recipient)»,
+			«handleSalutation»,
 			
 			«generateMainContent»
 			
@@ -28,9 +28,9 @@ class ReportGenerator {
 		'''
 	}
 
-	def handleSalutation(Recipient recipient) {
-		'''«IF recipient.gender == GENDER.FEMALE»
-		Sehr geehrte Frau«ELSEIF recipient.gender == GENDER.MALE»
+	def handleSalutation() {
+		'''«IF r.recipient.gender == GENDER.FEMALE»
+		Sehr geehrte Frau«ELSEIF r.recipient.gender == GENDER.MALE»
 		Sehr geehrter Herr«ELSE»
 		Guten Tag,«ENDIF»«handleTitle(r.recipient)»«r.recipient.name» «r.recipient.familyName»'''
 	}
