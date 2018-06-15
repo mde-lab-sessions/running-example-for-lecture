@@ -36,6 +36,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Fond">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kunde" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -48,7 +49,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="finanzamt" lowerBound="1"
         eType="#//Finanzamt" eOpposite="#//Finanzamt/steuerzahler"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Umsatz" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Umsatz" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kauf" eSuperTypes="#//Umsatz"/>
   <eClassifiers xsi:type="ecore:EClass" name="Verkauf" eSuperTypes="#//Umsatz"/>
   <eClassifiers xsi:type="ecore:EClass" name="Gewinn" eSuperTypes="#//Verkauf"/>
