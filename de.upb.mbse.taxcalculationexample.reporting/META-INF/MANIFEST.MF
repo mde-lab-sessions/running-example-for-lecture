@@ -11,8 +11,9 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro
-Export-Package: reporting.impl,
- reporting.util,
- reporting
+Export-Package: de.upb.mbse.taxcalculationexample.reporting,
+ reporting,
+ reporting.impl,
+ reporting.util
 Automatic-Module-Name: de.upb.mbse.taxcalculationexample.reporting
 

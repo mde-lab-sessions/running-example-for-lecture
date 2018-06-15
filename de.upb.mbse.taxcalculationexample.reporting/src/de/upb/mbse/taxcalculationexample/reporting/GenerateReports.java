@@ -27,7 +27,12 @@ public class GenerateReports {
 		jobResource.load(null);
 
 		ReportingJob job = (ReportingJob) jobResource.getContents().get(0);
+		generate(job);
+		
+		System.out.println("Generated " + job.getReports().size() + " reports.");
+	}
 
+	public static void generate(ReportingJob job) {
 		File output = new File("./instances/reports" + LocalDateTime.now().toString().replace(":", "_"));
 		output.mkdir();
 
@@ -39,7 +44,5 @@ public class GenerateReports {
 				e.printStackTrace();
 			}
 		});
-		
-		System.out.println("Generated " + job.getReports().size() + " reports.");
 	}
 }

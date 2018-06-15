@@ -57,7 +57,7 @@ class ReportGenerator {
 		'''
 			Mit freundlichen Grüßen
 						
-			Ihre BS
+			«r.footer»
 		'''
 	}
 }
