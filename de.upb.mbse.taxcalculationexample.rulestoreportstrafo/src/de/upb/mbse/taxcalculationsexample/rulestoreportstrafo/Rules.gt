@@ -1,0 +1,104 @@
+import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+import "platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore"
+
+rule calculationResultsToReportingJob {
+	results:Berechnungslauf {
+		-zustand->state
+	}
+	
+	state:Aus
+	
+	++ job:ReportingJob
+}
+
+rule clientToRecipient {
+	bank:Bank {
+		-kunden->client
+	}
+	
+	client:Kunde
+	
+	job:ReportingJob {
+		++ -recipients->rec
+	}
+	
+	++ rec:Recipient {
+		.name := client.firstName
+		.familyName := client.lastName
+		++ -postalAddress->address
+	}
+
+	++ address:Address
+}
+
+
+rule createReport {
+	client:Kunde
+	
+	job:ReportingJob {
+		-recipients->rec
+		++ -reports->report
+	}
+	
+	rec:Recipient {
+		.name == client.firstName
+		.familyName == client.lastName
+	}
+	
+	++ report:Report {
+		.header := "BS:  The First Bank of Springfield"
+		.footer := "Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
+		++ -recipient->rec
+	}	
+} when clientIsRelevant
+
+condition clientIsRelevant = enforce clientHasAtLeastOneEvent
+
+pattern clientHasAtLeastOneEvent {
+	client:Kunde
+	
+	application:Ausfuehrung {
+		-umsatz->item
+	}
+	
+	item:Umsatz
+	
+	a:Anteil {
+		-umsaetze->item
+	}
+	
+	depo:Depot {
+		-anteile->a
+		-kunden->client
+	}
+}
+
+rule applicationToEvent refines clientHasAtLeastOneEvent {
+	application:Ausfuehrung {
+		-umsatz->item
+	}
+	
+	a:Anteil {
+		-fond->f
+	}
+	
+	f:Fond
+	
+	job:ReportingJob {
+		++ -events->event
+	}
+	
+	++ event:Event {
+		.date := item.date
+	}
+	
+	r:Report	 {
+		-recipient->rec
+		++ -events->event
+	}
+	
+	rec:Recipient {
+		.name == client.firstName
+		.familyName == client.lastName
+	}
+}
