@@ -16,3 +16,4 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j,org.apache.commons.logging
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.rulestoreportstrafo
