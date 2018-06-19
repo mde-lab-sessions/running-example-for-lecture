@@ -11,9 +11,6 @@ import org.junit.Test;
 
 import de.upb.mbse.taxcalculationexample.reporting.GenerateReports;
 import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.CalculationResultsToReportingJobMatch;
-import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.DepotToReportMatch;
-import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules.ApplicationToEventRule;
-import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules.ClientGetsReportRule;
 import reporting.ReportingJob;
 
 public class TestTrafo extends TransformationTest {
@@ -32,25 +29,7 @@ public class TestTrafo extends TransformationTest {
 		Optional<ReportingJob> job = match.map(m -> m.getJob());
 		assertTrue(job.isPresent());
 
-		// Create recipients
-		api.clientToRecipient().forEachMatch(m -> api.clientToRecipient().apply(m));
-
-		// Create reports
-		api.depotToReport().forEachMatch(m -> {
-			Optional<DepotToReportMatch> ocm = api.depotToReport().apply(m);
-			ocm.ifPresent(cm -> {
-				// Add recipients
-				ClientGetsReportRule cr = api.clientGetsReport().bind(cm);
-				cr.forEachMatch(rm -> cr.apply(rm));
-
-				// Create events
-				ApplicationToEventRule ar = api.applicationToEvent().bind(cm);
-				ar.forEachMatch(am -> {
-					ar.apply(am).ifPresent(mm -> mm.getEvent().setDescription(mm.getItem().eClass().getName() + ": "
-							+ mm.getA().getAmount() + " Anteilen im Fond " + mm.getF().getName()));
-				});
-			});
-		});
+		// TODO:  Add remaining transformation
 
 		Resource result = resourceSet.createResource(URI.createPlatformResourceURI(INSTANCES + "/result.xmi", true));
 
