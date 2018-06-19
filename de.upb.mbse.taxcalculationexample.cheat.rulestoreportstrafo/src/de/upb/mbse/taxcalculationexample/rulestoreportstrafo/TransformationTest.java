@@ -8,7 +8,7 @@ import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.Rulestoreportst
 abstract public class TransformationTest extends RulestoreportstrafoDemoclesApp {
 
 	protected RulestoreportstrafoAPI api;
-	protected static final String INSTANCES = "de.upb.mbse.taxcalculationexample.rulestoreportstrafo/instances";
+	protected static final String INSTANCES = "de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo/instances";
 
 	@Before
 	public void setup() throws Exception {

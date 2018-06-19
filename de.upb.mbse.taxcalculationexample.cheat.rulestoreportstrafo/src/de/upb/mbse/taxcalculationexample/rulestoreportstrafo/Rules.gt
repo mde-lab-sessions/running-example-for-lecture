@@ -99,27 +99,8 @@ rule applicationToEvent {
 	++ event: Event {
 		.date := item.date
 	}
-
-	r: Report {
-		++ -events -> event
-	}
-} when correctReportForDepo
-
-condition correctReportForDepo = enforce haveCommonClient
-
-pattern haveCommonClient {
-	client:Kunde
 	
-	depot:Depot {
-		-kunden->client
-	}
-	
-	r:Report {
-		-recipients->rec
-	}
-	
-	rec:Recipient {
-		.name == client.firstName
-		.familyName == client.lastName
+	report:Report {
+		++ -events->event
 	}
 }
