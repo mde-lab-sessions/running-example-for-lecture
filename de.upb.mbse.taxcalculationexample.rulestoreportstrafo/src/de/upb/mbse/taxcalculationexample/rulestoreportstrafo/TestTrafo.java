@@ -12,6 +12,7 @@ import org.junit.Test;
 import de.upb.mbse.taxcalculationexample.reporting.GenerateReports;
 import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.CalculationResultsToReportingJobMatch;
 import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.DepotToReportMatch;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules.ApplicationToEventRule;
 import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules.ClientGetsReportRule;
 import reporting.ReportingJob;
 
@@ -41,14 +42,14 @@ public class TestTrafo extends TransformationTest {
 				// Add recipients
 				ClientGetsReportRule cr = api.clientGetsReport().bind(cm);
 				cr.forEachMatch(rm -> cr.apply(rm));
-			});
-		});
 
-		// Create events
-		api.applicationToEvent().forEachMatch(am -> {
-			api.applicationToEvent().apply(am)
-					.ifPresent(mm -> mm.getEvent().setDescription(mm.getItem().eClass().getName() + ": "
+				// Create events
+				ApplicationToEventRule ar = api.applicationToEvent().bind(cm);
+				ar.forEachMatch(am -> {
+					ar.apply(am).ifPresent(mm -> mm.getEvent().setDescription(mm.getItem().eClass().getName() + ": "
 							+ mm.getA().getAmount() + " Anteilen im Fond " + mm.getF().getName()));
+				});
+			});
 		});
 
 		Resource result = resourceSet.createResource(URI.createPlatformResourceURI(INSTANCES + "/result.xmi", true));

@@ -103,23 +103,19 @@ rule applicationToEvent {
 	r: Report {
 		++ -events -> event
 	}
-} when correctReportForDepo
+}when noOtherEvent
 
-condition correctReportForDepo = forbid haveCommonClient
+condition noOtherEvent = forbid otherEvent
 
-pattern haveCommonClient {
-	client:Kunde
-	
-	depot:Depot {
-		-kunden->client
-	}
-	
+pattern otherEvent {
 	r:Report {
-		-recipients->rec
-	}
+		-events->e
+	} 
 	
-	rec:Recipient {
-		.name == client.firstName
-		.familyName == client.lastName
+	item:Umsatz
+	
+	
+	e:Event {
+		.date == item.date
 	}
 }
