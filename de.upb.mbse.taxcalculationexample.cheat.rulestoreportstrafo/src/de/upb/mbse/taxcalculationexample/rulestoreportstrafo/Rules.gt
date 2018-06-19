@@ -105,7 +105,7 @@ rule applicationToEvent {
 	}
 } when correctReportForDepo
 
-condition correctReportForDepo = forbid haveCommonClient
+condition correctReportForDepo = enforce haveCommonClient
 
 pattern haveCommonClient {
 	client:Kunde
