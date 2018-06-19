@@ -13,11 +13,15 @@ class ReportGenerator {
 		this.r = r
 	}
 
-	def generate() {
+	def generateReports(){
+		r.recipients.map[rec | generate(rec)]
+	}
+
+	private def generate(Recipient rec) {
 		'''
 			#«r.header»
 			
-			«handleSalutation»,
+			«handleSalutation(rec)»,
 			
 			«generateMainContent»
 			
@@ -28,19 +32,19 @@ class ReportGenerator {
 		'''
 	}
 
-	def handleSalutation() {
-		'''«IF r.recipient.gender == GENDER.FEMALE»
-		Sehr geehrte Frau«ELSEIF r.recipient.gender == GENDER.MALE»
+	private def handleSalutation(Recipient rec) {
+		'''«IF rec.gender == GENDER.FEMALE»
+		Sehr geehrte Frau«ELSEIF rec.gender == GENDER.MALE»
 		Sehr geehrter Herr«ELSE»
-		Guten Tag,«ENDIF»«handleTitle(r.recipient)»«r.recipient.name» «r.recipient.familyName»'''
+		Guten Tag,«ENDIF»«handleTitle(rec)»«rec.name» «rec.familyName»'''
 	}
 
-	def handleTitle(Recipient recipient) {
+	private def handleTitle(Recipient recipient) {
 		''' «IF !recipient.title.empty»
 		«recipient.title» «ENDIF»'''
 	}
 
-	def generateMainContent() {
+	private def generateMainContent() {
 		'''
 			«FOR event : r.events»
 				- «event.description» am «handleDate(event.date)»
@@ -48,12 +52,12 @@ class ReportGenerator {
 		'''
 	}
 
-	def handleDate(Date date) {
+	private def handleDate(Date date) {
 		val ft = new SimpleDateFormat("d.MM.yyyy zzz");
 		'''«ft.format(date)»'''
 	}
 
-	def handleFarewell() {
+	private def handleFarewell() {
 		'''
 			Mit freundlichen Grüßen
 						

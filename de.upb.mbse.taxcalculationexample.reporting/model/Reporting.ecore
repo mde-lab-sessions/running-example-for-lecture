@@ -6,8 +6,8 @@
     <details key="documentation" value="TODO: Add documentation for reporting. Hint: You may copy this element in the Ecore editor to add documentation to EClasses, EOperations, ..."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Report">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipient" lowerBound="1"
-        eType="#//Recipient"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipients" lowerBound="1"
+        upperBound="-1" eType="#//Recipient"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="footer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
@@ -44,6 +44,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        defaultValueLiteral="2000-01-01"/>
   </eClassifiers>
 </ecore:EPackage>

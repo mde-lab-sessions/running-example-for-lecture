@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -29,7 +30,7 @@ public class GenerateReports {
 		ReportingJob job = (ReportingJob) jobResource.getContents().get(0);
 		generate(job);
 		
-		System.out.println("Generated " + job.getReports().size() + " reports.");
+		System.out.println("Completed report generation.");
 	}
 
 	public static void generate(ReportingJob job) {
@@ -37,11 +38,13 @@ public class GenerateReports {
 		output.mkdir();
 
 		job.getReports().forEach(report -> {
-			CharSequence content = new ReportGenerator(report).generate();
-			try (PrintWriter out = new PrintWriter(output.getPath() + "/report" + job.getReports().indexOf(report) + ".md")) {
-				out.println(content);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+			List<CharSequence> contents = new ReportGenerator(report).generateReports();
+			for (int i = 0; i < contents.size(); i++) {
+				try (PrintWriter out = new PrintWriter(output.getPath() + "/report" + job.getReports().indexOf(report) + "_" + i + ".md")) {
+					out.println(contents.get(i));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}
