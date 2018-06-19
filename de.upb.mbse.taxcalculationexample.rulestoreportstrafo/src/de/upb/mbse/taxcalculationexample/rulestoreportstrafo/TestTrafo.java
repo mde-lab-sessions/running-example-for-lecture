@@ -1,4 +1,4 @@
-package de.upb.mbse.taxcalculationsexample.rulestoreportstrafo;
+package de.upb.mbse.taxcalculationexample.rulestoreportstrafo;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.Test;
 
 import de.upb.mbse.taxcalculationexample.reporting.GenerateReports;
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.matches.CalculationResultsToReportingJobMatch;
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.matches.DepotToReportMatch;
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.rules.ClientGetsReportRule;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.CalculationResultsToReportingJobMatch;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches.DepotToReportMatch;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules.ClientGetsReportRule;
 import reporting.ReportingJob;
 
 public class TestTrafo extends TransformationTest {

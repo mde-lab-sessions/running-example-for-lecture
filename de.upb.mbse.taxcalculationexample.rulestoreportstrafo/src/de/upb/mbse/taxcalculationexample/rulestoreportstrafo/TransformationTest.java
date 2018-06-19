@@ -1,10 +1,10 @@
-package de.upb.mbse.taxcalculationsexample.rulestoreportstrafo;
+package de.upb.mbse.taxcalculationexample.rulestoreportstrafo;
 
 import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.junit.Before;
 
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.RulestoreportstrafoAPI;
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.RulestoreportstrafoDemoclesApp;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.RulestoreportstrafoAPI;
+import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.RulestoreportstrafoDemoclesApp;
 
 abstract public class TransformationTest extends RulestoreportstrafoDemoclesApp {
 

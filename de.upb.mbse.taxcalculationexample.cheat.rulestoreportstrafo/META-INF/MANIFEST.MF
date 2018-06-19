@@ -1,21 +1,20 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: de.upb.mbse.taxcalculationexample.rulestoreport
- strafo
-Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.rulestoreportst
- rafo;singleton:=true
+Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo;singleton:=true
 Export-Package: de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api,
  de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches,
  de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules
-Bundle-Name: de.upb.mbse.taxcalculationexample.rulestoreportstrafo
+Bundle-Name: de.upb.mbse.taxcalculationexample.cheat.rulestoreportstra
+ fo
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.emoflon.ibex.common,
  org.emoflon.ibex.gt,
  org.emoflon.ibex.gt.democles,
- de.upb.mbse.taxcalculationexample.businessrules;bundle-version="0.0.1
- ",
+ de.upb.mbse.taxcalculationexample.businessrules;bundle-version="0.0.1",
  de.upb.mbse.taxcalculationexample.reporting;bundle-version="0.0.1",
  org.junit
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: My Company
 Import-Package: org.apache.log4j,org.apache.commons.logging
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo
