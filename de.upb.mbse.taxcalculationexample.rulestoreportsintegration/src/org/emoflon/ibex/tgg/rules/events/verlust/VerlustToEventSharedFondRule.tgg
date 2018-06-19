@@ -1,0 +1,6 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule VerlustToEventSharedFondRule 
+#extends VerlustToEventRule, SharedFond 
+#with Rulestoreportsintegration

@@ -1,0 +1,30 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule CalculationResultsToReportingJobRule #with Rulestoreportsintegration
+
+#source { 
+	++bank:Bank
+	
+	++ results:Berechnungslauf {
+		++ -bank->bank
+		++ -zustand->state
+	}
+	
+	++ state:Aus
+}
+
+#target {
+	++ job:ReportingJob
+}
+
+#correspondence {
+	++ r2j:RunToJob {
+		#src->results
+		#trg->job
+	}
+}
+
+#attributeConditions {
+	
+}

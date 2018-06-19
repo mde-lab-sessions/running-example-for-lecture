@@ -1,0 +1,16 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule GewinnToEventRule #extends ApplicationToEventRule #with Rulestoreportsintegration
+
+#source { 
+	++ item : Gewinn
+}
+
+#target {
+	++ e:Event
+}
+
+#attributeConditions {
+	addPrefix("Gewinn: ", temp2, e.description)	
+}

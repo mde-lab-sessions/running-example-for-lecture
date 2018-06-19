@@ -10,8 +10,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.Test;
 
 import de.upb.mbse.taxcalculationexample.reporting.GenerateReports;
-import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.matches.ApplicationToEventMatch;
 import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.matches.CalculationResultsToReportingJobMatch;
+import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.matches.DepotToReportMatch;
+import de.upb.mbse.taxcalculationsexample.rulestoreportstrafo.api.rules.ClientGetsReportRule;
 import reporting.ReportingJob;
 
 public class TestTrafo extends TransformationTest {
@@ -32,23 +33,31 @@ public class TestTrafo extends TransformationTest {
 
 		// Create recipients
 		api.clientToRecipient().forEachMatch(m -> api.clientToRecipient().apply(m));
-		
+
 		// Create reports
-		api.createReport().forEachMatch(m -> api.createReport().apply(m));
-		
+		api.depotToReport().forEachMatch(m -> {
+			Optional<DepotToReportMatch> ocm = api.depotToReport().apply(m);
+			ocm.ifPresent(cm -> {
+				// Add recipients
+				ClientGetsReportRule cr = api.clientGetsReport().bind(cm);
+				cr.forEachMatch(rm -> cr.apply(rm));
+			});
+		});
+
 		// Create events
-		api.applicationToEvent().forEachMatch(m -> {
-			Optional<ApplicationToEventMatch> o = api.applicationToEvent().apply(m);
-			o.ifPresent(cm -> cm.getEvent().setDescription(cm.getItem().eClass().getName() + ": " + cm.getA().getAmount() + " Anteilen im Fond " + cm.getF().getName()));
+		api.applicationToEvent().forEachMatch(am -> {
+			api.applicationToEvent().apply(am)
+					.ifPresent(mm -> mm.getEvent().setDescription(mm.getItem().eClass().getName() + ": "
+							+ mm.getA().getAmount() + " Anteilen im Fond " + mm.getF().getName()));
 		});
 
 		Resource result = resourceSet.createResource(URI.createPlatformResourceURI(INSTANCES + "/result.xmi", true));
 
 		job.ifPresent(j -> {
-			GenerateReports.generate(j);			
-			result.getContents().add(j);	
+			GenerateReports.generate(j);
+			result.getContents().add(j);
 		});
-		
+
 		result.save(null);
 	}
 }

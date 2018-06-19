@@ -1,0 +1,70 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ApplicationToEventRule #with Rulestoreportsintegration
+
+#source { 
+	bank:Bank {
+		-allDepots->depot
+		++ -fonds->f
+	}
+	
+	++ f:Fond
+		
+	depot:Depot {
+		++ -anteile->a
+	}
+	
+	++ a:Anteil {
+		++ -fond->f
+		++ -umsaetze->item
+	}
+		
+	++ item:Umsatz
+	
+	++ application:Ausfuehrung {
+		++ -umsatz->item
+	}
+	
+	run:Berechnungslauf {
+		-bank->bank
+		++ -ausfuehrungen->application
+	}
+}
+
+#target {
+	job:ReportingJob {
+		++ -events->e
+		-reports->report
+	}
+	
+	report:Report {
+		++ -events->e
+	}
+	
+	++ e:Event	
+}
+
+#correspondence {
+	r2j:RunToJob {
+		#src->run
+		#trg->job
+	}
+	
+	d2r:DepotToReport {
+		#src->depot
+		#trg->report
+	}
+	
+	++ a2e:ApplicationToEvent {
+		#src->application
+		#trg->e
+	}
+}
+
+#attributeConditions {
+	addPrefix(" Anteilen im Fond ", f.name, temp1)
+	addPrefix(a.amount, temp1, temp2)
+	eq_date(item.date, e.date)
+}
+ 

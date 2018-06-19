@@ -1,0 +1,39 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule DepotToReportRule #with Rulestoreportsintegration
+
+#source { 
+	run:Berechnungslauf {
+		-bank->bank
+	}
+	
+	bank:Bank {
+		++ -allDepots->depot
+	}
+	
+	++ depot:Depot
+}
+
+#target {
+	job:ReportingJob {
+		++ -reports->rep
+	}
+	
+	++ rep:Report {
+		footer := "Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
+		header := "BS:  The First Bank of Springfield"
+	}
+}
+
+#correspondence {
+	r2j:RunToJob {
+		#src->run
+		#trg->job
+	}
+	
+	++ c2r:DepotToReport {
+		#src->depot
+		#trg->rep
+	}
+}

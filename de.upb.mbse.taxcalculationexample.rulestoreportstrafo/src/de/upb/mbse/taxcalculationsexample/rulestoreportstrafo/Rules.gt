@@ -2,42 +2,64 @@ import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model
 import "platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore"
 
 rule calculationResultsToReportingJob {
-	results:Berechnungslauf {
-		-zustand->state
+	results: Berechnungslauf {
+		-zustand -> state
 	}
-	
-	state:Aus
-	
-	++ job:ReportingJob
+
+	state: Aus
+
+	++ job: ReportingJob
 }
 
 rule clientToRecipient {
-	bank:Bank {
-		-kunden->client
+	client: Kunde
+
+	job: ReportingJob {
+		++ -recipients -> rec
 	}
-	
-	client:Kunde
-	
-	job:ReportingJob {
-		++ -recipients->rec
-	}
-	
-	++ rec:Recipient {
+
+	++ rec: Recipient {
 		.name := client.firstName
 		.familyName := client.lastName
-		++ -postalAddress->address
+		++ -postalAddress -> address
 	}
 
-	++ address:Address
+	++ address: Address
+} when clientHasAtLeastOneDepot
+
+condition clientHasAtLeastOneDepot = enforce clientHasDepot
+
+pattern clientHasDepot {
+	client : Kunde
+	depot : Depot {
+		-kunden->client
+	} 
 }
 
-
-rule createReport {
-	client:Kunde
+rule depotToReport {
+	run:Berechnungslauf {
+		-bank->bank
+	}
 	
+	bank:Bank {
+		-allDepots->depot
+	}
+	
+	depot:Depot
+
 	job:ReportingJob {
-		-recipients->rec
-		++ -reports->report
+		++ -reports->rep
+	}
+	
+	++ rep:Report {
+		.footer := "Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
+		.header := "BS:  The First Bank of Springfield"
+	}
+}
+
+rule clientGetsReport {
+	report:Report {
+		++ -recipients->rec
 	}
 	
 	rec:Recipient {
@@ -45,56 +67,55 @@ rule createReport {
 		.familyName == client.lastName
 	}
 	
-	++ report:Report {
-		.header := "BS:  The First Bank of Springfield"
-		.footer := "Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
-		++ -recipient->rec
-	}	
-} when clientIsRelevant
-
-condition clientIsRelevant = enforce clientHasAtLeastOneEvent
-
-pattern clientHasAtLeastOneEvent {
-	client:Kunde
+	depot:Depot {
+		-kunden->client
+	}
 	
-	application:Ausfuehrung {
+	client:Kunde
+}
+
+rule applicationToEvent {
+	application: Ausfuehrung {
 		-umsatz->item
 	}
 	
 	item:Umsatz
 	
-	a:Anteil {
-		-umsaetze->item
-	}
-	
-	depo:Depot {
+	depot:Depot {
 		-anteile->a
-		-kunden->client
-	}
-}
-
-rule applicationToEvent refines clientHasAtLeastOneEvent {
-	application:Ausfuehrung {
-		-umsatz->item
 	}
 	
 	a:Anteil {
 		-fond->f
+		-umsaetze->item
 	}
 	
-	f:Fond
-	
-	job:ReportingJob {
-		++ -events->event
+	f: Fond
+
+	job: ReportingJob {
+		++ -events -> event
 	}
-	
-	++ event:Event {
+
+	++ event: Event {
 		.date := item.date
 	}
+
+	r: Report {
+		++ -events -> event
+	}
+} when correctReportForDepo
+
+condition correctReportForDepo = forbid haveCommonClient
+
+pattern haveCommonClient {
+	client:Kunde
 	
-	r:Report	 {
-		-recipient->rec
-		++ -events->event
+	depot:Depot {
+		-kunden->client
+	}
+	
+	r:Report {
+		-recipients->rec
 	}
 	
 	rec:Recipient {
