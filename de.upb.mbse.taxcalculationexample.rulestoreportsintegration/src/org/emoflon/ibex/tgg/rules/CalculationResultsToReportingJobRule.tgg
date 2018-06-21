@@ -8,10 +8,17 @@
 	
 	++ results:Berechnungslauf {
 		++ -bank->bank
-		++ -zustand->state
+		++ -zustand->aus
+		++ -zustaende->aus
+		++ -zustaende->an
+		++ -zustaende->error
 	}
 	
-	++ state:Aus
+	++ aus:Aus
+	
+	++ an:An
+	
+	++ error:Fehler
 }
 
 #target {

@@ -1,0 +1,20 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule IgnoreSteuerInlaenderWithoutDepot #with Rulestoreportsintegration
+
+#source { 
+	bank:Bank {
+		++ -kunden->client
+	}
+	++ client:Steuerinlaender	
+}
+
+#rule IgnoreSteuerAuslaenderWithoutDepot #with Rulestoreportsintegration
+
+#source {
+	bank:Bank {
+		++ -kunden->client
+	} 
+	++ client:Steuerauslaender	
+}
