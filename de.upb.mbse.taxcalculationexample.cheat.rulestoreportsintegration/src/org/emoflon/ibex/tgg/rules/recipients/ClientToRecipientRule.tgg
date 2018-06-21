@@ -1,0 +1,50 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ClientToRecipientRule #with Rulestoreportsintegration
+
+#source {
+	bank:Bank {
+		++ -kunden->c
+	}
+	 
+	++ c:Kunde {
+		++ -depots->d
+	}
+	
+	d:Depot
+}
+
+#target {
+	job:ReportingJob {
+		-reports->r
+		++ -recipients->rec
+	}
+	
+	r:Report {
+		++ -recipients->rec
+	}
+	
+	++ rec:Recipient {
+		++ -postalAddress->a
+	}
+	
+	++ a:Address
+}
+
+#correspondence {
+	d2r:DepotToReport {
+		#src->d
+		#trg->r
+	}
+	
+	++ c2r:ClientToRecipient {
+		#src->c
+		#trg->rec
+	}	
+}
+
+#attributeConditions {
+	eq_string(c.firstName, rec.name)
+	eq_string(c.lastName, rec.familyName)
+}

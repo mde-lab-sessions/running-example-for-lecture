@@ -1,0 +1,12 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule SharedFond #with Rulestoreportsintegration
+
+#source { 
+	bank:Bank {
+		-fonds->f
+	}
+	
+	f:Fond
+}

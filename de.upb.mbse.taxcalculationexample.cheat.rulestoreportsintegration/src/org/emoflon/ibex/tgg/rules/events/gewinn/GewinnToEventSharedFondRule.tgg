@@ -1,0 +1,6 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule GewinnToEventSharedFondRule 
+#extends GewinnToEventRule, SharedFond 
+#with Rulestoreportsintegration

@@ -1,0 +1,47 @@
+// Add imports here
+#import "platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore"
+#import "platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore"
+
+#schema Rulestoreportsintegration
+	
+#source {
+	businessrules	
+}
+
+#target { 
+	reporting
+} 
+
+#correspondence {
+	RunToJob {
+		#src->Berechnungslauf
+		#trg->ReportingJob
+	}
+	
+	DepotToReport {
+		#src->Depot
+		#trg->Report
+	}
+	
+	ApplicationToEvent {
+		#src->Ausfuehrung
+		#trg->Event
+	}
+	
+	ClientToRecipient {
+		#src->Kunde
+		#trg->Recipient
+	}
+}
+
+#attributeConditions {
+	#userDefined eq_date(date1:EDate, date2:EDate){
+		#sync: [B B], [F B], [B F]
+		#gen: [B B], [F B], [B F], [F F]
+	}
+	
+	#userDefined formEventDescription(prefix:EString, amount:EInt, fond:EString, desc:EString){
+		#sync: [B F F B], [B F B F], [B F B B], [B B B F], [B B B B]
+		#gen:  [B F F B], [B F B F], [B F B B], [B B B F], [B B B B], [B F F F]
+	}
+}

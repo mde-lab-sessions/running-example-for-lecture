@@ -1,0 +1,12 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule GewinnToEventRule #extends ApplicationToEventRule #with Rulestoreportsintegration
+
+#source { 
+	++ item : Gewinn
+}
+
+#attributeConditions {
+	eq_string("Gewinn: ", prefix)	
+}

@@ -1,0 +1,10 @@
+#using Rulestoreportsintegration.*
+#using AttrCondDefLibrary.*
+
+#rule SteuerInlaenderToRecipientRule 
+#extends ClientToRecipientRule
+#with Rulestoreportsintegration
+
+#source { 
+	++ c:Steuerinlaender
+}
