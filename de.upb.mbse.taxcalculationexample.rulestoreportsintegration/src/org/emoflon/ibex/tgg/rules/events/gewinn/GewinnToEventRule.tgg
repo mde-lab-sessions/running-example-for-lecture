@@ -7,10 +7,6 @@
 	++ item : Gewinn
 }
 
-#target {
-	++ e:Event
-}
-
 #attributeConditions {
-	addPrefix("Gewinn: ", temp2, e.description)	
+	eq_string("Gewinn: ", prefix)	
 }

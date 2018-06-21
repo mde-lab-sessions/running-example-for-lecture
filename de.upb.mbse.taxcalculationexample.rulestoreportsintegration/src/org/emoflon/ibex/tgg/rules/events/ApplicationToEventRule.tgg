@@ -63,8 +63,7 @@
 }
 
 #attributeConditions {
-	addPrefix(" Anteilen im Fond ", f.name, temp1)
-	addPrefix(a.amount, temp1, temp2)
+	formEventDescription(prefix, a.amount, f.name, e.description)
 	eq_date(item.date, e.date)
 }
  

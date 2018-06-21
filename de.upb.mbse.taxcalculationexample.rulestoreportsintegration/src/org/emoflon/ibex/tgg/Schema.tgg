@@ -36,7 +36,12 @@
 
 #attributeConditions {
 	#userDefined eq_date(date1:EDate, date2:EDate){
-		#sync:[B B], [F B], [B F]
-		#gen:[B B], [F B], [B F], [F F]
+		#sync: [B B], [F B], [B F]
+		#gen: [B B], [F B], [B F], [F F]
+	}
+	
+	#userDefined formEventDescription(prefix:EString, amount:EInt, fond:EString, desc:EString){
+		#sync: [B F F B], [B F B F], [B F B B], [B B B F], [B B B B]
+		#gen:  [B F F B], [B F B F], [B F B B], [B B B F], [B B B B], [B F F F]
 	}
 }

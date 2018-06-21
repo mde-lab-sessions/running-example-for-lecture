@@ -3,7 +3,11 @@
 
 #abstract #rule ClientToRecipientRule #with Rulestoreportsintegration
 
-#source { 
+#source {
+	bank:Bank {
+		++ -kunden->c
+	}
+	 
 	++ c:Kunde {
 		++ -depots->d
 	}

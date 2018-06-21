@@ -1,7 +1,7 @@
 #using Rulestoreportsintegration.*
 #using AttrCondDefLibrary.*
 
-#rule SharedFond #with Rulestoreportsintegration
+#abstract #rule SharedFond #with Rulestoreportsintegration
 
 #source { 
 	bank:Bank {
