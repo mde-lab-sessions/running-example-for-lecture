@@ -12,7 +12,7 @@
         lastName="Simpson"
         depots="/0/@allDepots.0 /0/@allDepots.1"/>
     <kunden
-        xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Steuerinlaender"
+        xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Steuerauslaender"
         id="43"
         firstName="Marge"
         lastName="Simpson"
@@ -20,10 +20,12 @@
     <kunden
         xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Steuerauslaender"
         firstName="Ned"
-        lastName="Flanders"/>
+        lastName="Flanders"
+        depots="/0/@allDepots.2"/>
     <fonds name="F1"/>
     <fonds name="F2"/>
     <allDepots
+        number="1"
         kunden="/0/@kunden.0 /0/@kunden.1">
       <anteile
           amount="4"
@@ -35,12 +37,16 @@
           umsaetze="/1/@ausfuehrungen.1/@umsatz"/>
     </allDepots>
     <allDepots
+        number="2"
         kunden="/0/@kunden.0">
       <anteile
           amount="100"
           fond="/0/@fonds.0"
           umsaetze="/1/@ausfuehrungen.2/@umsatz"/>
     </allDepots>
+    <allDepots
+        number="3"
+        kunden="/0/@kunden.2"/>
   </de.upb.mbse.taxcalculationexample.businessrules:Bank>
   <de.upb.mbse.taxcalculationexample.businessrules:Berechnungslauf
       bank="/0"
