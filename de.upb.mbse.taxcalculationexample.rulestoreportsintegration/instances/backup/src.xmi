@@ -45,8 +45,6 @@
   <de.upb.mbse.taxcalculationexample.businessrules:Berechnungslauf
       bank="/0"
       zustand="/1/@zustaende.1">
-    <regeln
-        href="regelmenge2.xmi#/"/>
     <zustaende
         xsi:type="de.upb.mbse.taxcalculationexample.businessrules:An"/>
     <zustaende
@@ -54,17 +52,11 @@
     <zustaende
         xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Fehler"/>
     <ausfuehrungen>
-      <aktion
-          xsi:type="de.upb.mbse.taxcalculationexample.businessrules:SteuerBerechnen"
-          href="regelmenge2.xmi#//@regeln.0/@aktionen.0"/>
       <umsatz
           xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Gewinn"
           date="2017-04-02T00:00:00.000+0200"/>
     </ausfuehrungen>
     <ausfuehrungen>
-      <aktion
-          xsi:type="de.upb.mbse.taxcalculationexample.businessrules:InVerlustverrechnungstopfEinstellen"
-          href="regelmenge2.xmi#//@regeln.1/@aktionen.0"/>
       <umsatz
           xsi:type="de.upb.mbse.taxcalculationexample.businessrules:Verlust"
           date="2017-04-01T00:00:00.000+0200"/>
