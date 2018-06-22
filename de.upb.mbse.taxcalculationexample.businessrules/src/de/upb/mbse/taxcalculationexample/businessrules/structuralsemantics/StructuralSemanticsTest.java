@@ -1,23 +1,19 @@
 package de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics;
 
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.junit.Before;
 
 import de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.StructuralsemanticsAPI;
-import de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.StructuralsemanticsApp;
+import de.upb.mbse.taxcalculationexample.businessrules.structuralsemantics.api.StructuralsemanticsDemoclesApp;
 
-abstract public class StructuralSemanticsTest extends StructuralsemanticsApp {
+abstract public class StructuralSemanticsTest extends StructuralsemanticsDemoclesApp {
 
 	protected StructuralsemanticsAPI api;
 	protected static final String INSTANCES = "de.upb.mbse.taxcalculationexample.businessrules/instances";
 
 	@Before
 	public void setup() throws Exception {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		resourceSet = engine.createAndPrepareResourceSet(workspacePath);
-
 		loadModels();
-		api = initAPI(engine);
+		api = initAPI();
 	}
 
 	abstract protected void loadModels();
