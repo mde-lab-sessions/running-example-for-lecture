@@ -40,8 +40,7 @@ class ReportGenerator {
 	}
 
 	private def handleTitle(Recipient recipient) {
-		''' «IF !recipient.title.empty»
-		«recipient.title» «ENDIF»'''
+		'''«IF !recipient.title.empty» «recipient.title»«ENDIF» '''
 	}
 
 	private def generateMainContent() {

@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="ASCII"?>
-<de.upb.mbse.taxcalculationexample.reporting:ReportingJob xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.upb.mbse.taxcalculationexample.reporting="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore">
-  <reports recipients="//@recipients.0 //@recipients.1" header="BS:  The First Bank of Springfield" footer="Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns" events="//@events.0 //@events.2"/>
-  <reports recipients="//@recipients.0" header="BS:  The First Bank of Springfield" footer="Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns" events="//@events.1"/>
-  <recipients name="Homer" familyName="Simpson">
-    <postalAddress/>
+<de.upb.mbse.taxcalculationexample.reporting:ReportingJob
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:de.upb.mbse.taxcalculationexample.reporting="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore">
+  <reports recipients="//@recipients.0 //@recipients.1"
+      header="BS:  The First Bank of Springfield"
+      footer="Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
+      events="//@events.0 //@events.2"/>
+  <reports recipients="//@recipients.0"
+      header="BS:  The First Bank of Springfield"
+      footer="Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns"
+      events="//@events.1"/>
+  <recipients
+      gender="MALE"
+      name="Homer"
+      familyName="Simpson">
+    <postalAddress
+        street="Evergreen Terrace"
+        postCode="6666"
+        number="742"
+        city="Springfield"
+        country="United States of America"/>
   </recipients>
-  <recipients name="Marge" familyName="Simpson">
-    <postalAddress/>
+  <recipients
+      gender="FEMALE"
+      name="Marge"
+      familyName="Simpson"
+      title="Dr.">
+    <postalAddress
+        street="Evergreen Terrace"
+        postCode="6666"
+        number="742"
+        city="Springfield"
+        country="United States of America"/>
   </recipients>
-  <events description="Verlust: 5 Anteilen im Fond F2" date="2017-04-01T00:00:00.000+0200"/>
-  <events description="Gewinn: 100 Anteilen im Fond F1" date="2017-04-01T00:00:00.000+0200"/>
-  <events description="Gewinn: 4 Anteilen im Fond F1" date="2017-04-02T00:00:00.000+0200"/>
+  <events description="Verlust: 5 Anteilen im Fond F2"
+      date="2017-04-01T00:00:00.000+0200"/>
+  <events description="Gewinn: 100 Anteilen im Fond F1"
+      date="2017-04-01T00:00:00.000+0200"/>
+  <events description="Gewinn: 4 Anteilen im Fond F1"
+      date="2017-04-02T00:00:00.000+0200"/>
 </de.upb.mbse.taxcalculationexample.reporting:ReportingJob>
