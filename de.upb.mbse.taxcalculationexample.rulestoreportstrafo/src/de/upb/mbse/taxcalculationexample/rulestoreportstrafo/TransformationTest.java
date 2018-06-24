@@ -1,6 +1,5 @@
 package de.upb.mbse.taxcalculationexample.rulestoreportstrafo;
 
-import org.emoflon.ibex.gt.democles.runtime.DemoclesGTEngine;
 import org.junit.Before;
 
 import de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.RulestoreportstrafoAPI;
@@ -13,10 +12,8 @@ abstract public class TransformationTest extends RulestoreportstrafoDemoclesApp 
 
 	@Before
 	public void setup() throws Exception {
-		DemoclesGTEngine engine = new DemoclesGTEngine();
-		resourceSet = engine.createAndPrepareResourceSet(workspacePath);
 		loadModels();
-		api = initAPI(engine);
+		api = initAPI();
 	}
 	
 	abstract protected void loadModels();
