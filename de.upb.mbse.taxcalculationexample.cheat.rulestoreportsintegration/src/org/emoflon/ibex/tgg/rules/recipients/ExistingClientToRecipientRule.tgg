@@ -30,3 +30,23 @@
 		#trg->rec
 	}
 }
+
+#nac NotYetClientOfDepot #for ExistingClientToRecipientRule
+
+#source {
+	c:Kunde {
+		-depots->d
+	}
+	
+	d:Depot	
+}
+
+#nac NotYetRecipientOfReport #for ExistingClientToRecipientRule
+
+#target {
+	r:Report {
+		-recipients->rec
+	}	
+	
+	rec:Recipient
+}
