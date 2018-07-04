@@ -1,49 +1,48 @@
 import "platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore"
-import "http://www.eclipse.org/emf/2002/Ecore"
+import "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
 
 rule allGreenNodesWithMissingAssignments() {
-	node:TGGRuleNode {
+	node: TGGRuleNode {
 		.bindingType == enum::CREATE
-		
-		-type->nodeType
-		
-		++ -attrExpr->newExp
+		-type -> nodeType
+		++ -attrExpr -> newExp
 	}
-	
-	++ newExp:TGGInplaceAttributeExpression {
+
+	++ newExp: TGGInplaceAttributeExpression {
 		.operator := enum::EQUAL
-		-attribute->attr
-		-valueExpr->val
+		++ -attribute -> attr
+		++ -valueExpr -> val
 	}
-	
-	++ val:TGGLiteralExpression {
+
+	++ val: TGGLiteralExpression {
 		.value := "TODO: Fill in value"
 	}
-	
-	nodeType:EClass {
-		-eAllAttributes->attr
+
+	nodeType: EClass {
+		-eAllAttributes -> attr
 	}
-	
-	attr:EAttribute {
-		-eType->attrType
+
+	attr: EAttribute {
+		-eType -> attrType
 	}
-	
-	attrType:EDataType {
+
+	attrType: EDataType {
 		.name == "EString"
 	}
-} when noAssignment
+}
+when noAssignment
 
 condition noAssignment = forbid assignment
 
 pattern assignment {
-	node:TGGRuleNode {
-		-attrExpr->expr
+	node: TGGRuleNode {
+		-attrExpr -> expr
 	}
-	
-	expr:TGGInplaceAttributeExpression {
+
+	expr: TGGInplaceAttributeExpression {
 		.operator == enum::EQUAL
-		-attribute->attr
+		-attribute -> attr
 	}
-	
-	attr:EAttribute
+
+	attr: EAttribute
 }
