@@ -27,7 +27,8 @@ Require-Bundle: org.emoflon.ibex.common,
  org.junit.vintage.engine,
  org.hamcrest.core,
  org.opentest4j,
- org.apiguardian
+ org.apiguardian,
+ org.eclipse.emf.ecore
 Export-Package: de.upb.mbse.taxcalculationexample.hot.api,
  de.upb.mbse.taxcalculationexample.hot.api.matches,
  de.upb.mbse.taxcalculationexample.hot.api.rules

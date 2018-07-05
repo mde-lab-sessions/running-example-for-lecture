@@ -1,5 +1,7 @@
 package de.upb.mbse.taxcalculationexample.hot;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 
 import org.apache.log4j.BasicConfigurator;
@@ -9,6 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.junit.jupiter.api.Test;
 
 import businessrules.BusinessrulesPackage;
 import de.upb.mbse.taxcalculationexample.hot.api.HotAPI;
@@ -17,34 +20,26 @@ import reporting.ReportingPackage;
 
 public class HOTExample extends HotDemoclesApp {
 
-	public static void main(String[] args) throws IOException {
-		System.out.println("Matches: " + HOTExample.addMissingAssignments());
-	}
-	
-	public static long addMissingAssignments() throws IOException {
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.DEBUG);
-
-		HOTExample hot = new HOTExample();
-		hot.registerMetaModels();
+	public long addMissingAssignments() throws IOException {
+		registerMetaModels();
 
 		// Load correspondence metamodel
-		Resource corrMM = hot.resourceSet.getResource(URI.createPlatformResourceURI(
+		Resource corrMM = resourceSet.getResource(URI.createPlatformResourceURI(
 				"de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore",
 				true), true);
 		EPackage pack = (EPackage) corrMM.getContents().get(0);
-		hot.registerMetaModel(pack);
-		hot.resourceSet.getResources().clear();
+		registerMetaModel(pack);
+		resourceSet.getResources().clear();
 
 		// Add all relevant models to the resourceSet
-		Resource tgg = hot.loadModel(URI.createFileURI("./instances/Rulestoreportsintegration.tgg.xmi"));
+		Resource tgg = loadModel(URI.createFileURI("./instances/Rulestoreportsintegration.tgg.xmi"));
 
-		hot.getModel().getResources().add(BusinessrulesPackage.eINSTANCE.eResource());
-		hot.getModel().getResources().add(ReportingPackage.eINSTANCE.eResource());
-		hot.getModel().getResources().add(EcorePackage.eINSTANCE.eResource());
-		
+		getModel().getResources().add(BusinessrulesPackage.eINSTANCE.eResource());
+		getModel().getResources().add(ReportingPackage.eINSTANCE.eResource());
+		getModel().getResources().add(EcorePackage.eINSTANCE.eResource());
+
 		// Initialise and apply rules
-		HotAPI api = hot.initAPI();
+		HotAPI api = initAPI();
 
 		long matches = api.addMissingAssignments().countMatches();
 
@@ -53,7 +48,17 @@ public class HOTExample extends HotDemoclesApp {
 
 		tgg.setURI(tgg.getURI().trimFileExtension().appendFileExtension("new.xmi"));
 		tgg.save(null);
-		
+
 		return matches;
+	}
+
+	@Test
+	public void doTest() throws IOException {
+		BasicConfigurator.configure();
+		Logger.getRootLogger().setLevel(Level.DEBUG);
+
+		HOTExample hot = new HOTExample();
+
+		assertEquals(17, hot.addMissingAssignments());
 	}
 }
