@@ -1,5 +1,5 @@
 import "platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore"
-import "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
 
 rule addMissingAssignments() {
 	node: TGGRuleNode {
@@ -45,9 +45,4 @@ pattern assignment {
 	}
 
 	attr: EAttribute
-}
-
-pattern anyNode(){
-	node: TGGRuleNode {
-	}
 }
