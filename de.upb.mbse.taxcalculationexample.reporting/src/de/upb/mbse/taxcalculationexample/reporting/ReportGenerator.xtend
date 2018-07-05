@@ -7,7 +7,7 @@ import reporting.Recipient
 import reporting.Report
 
 class ReportGenerator {
-	private val Report r
+	val Report r
 
 	new(Report r) {
 		this.r = r

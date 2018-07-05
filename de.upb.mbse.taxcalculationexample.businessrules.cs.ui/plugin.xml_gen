@@ -249,6 +249,15 @@
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="de.upb.mbse.taxcalculationexample.TaxCalculationRules"
+			class="de.upb.mbse.taxcalculationexample.ui.TaxCalculationRulesExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="de.upb.mbse.taxcalculationexample.TaxCalculationRules.validator.preferencePage"
+			name="Errors/Warnings">
+			<keywordReference id="de.upb.mbse.taxcalculationexample.ui.keyword_TaxCalculationRules"/>
+		</page>
+	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="de.upb.mbse.taxcalculationexample.ui.TaxCalculationRulesExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
@@ -397,12 +406,18 @@
 			class="de.upb.mbse.taxcalculationexample.ui.TaxCalculationRulesExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="taxcalc">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="de.upb.mbse.taxcalculationexample.TaxCalculationRules.contenttype"
+			contentViewerId="de.upb.mbse.taxcalculationexample.TaxCalculationRules.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="de.upb.mbse.taxcalculationexample.TaxCalculationRules.compare.contentMergeViewers"
 			class="de.upb.mbse.taxcalculationexample.ui.TaxCalculationRulesExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="taxcalc" label="TaxCalculationRules Compare">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="de.upb.mbse.taxcalculationexample.TaxCalculationRules.contenttype"
+			contentMergeViewerId="de.upb.mbse.taxcalculationexample.TaxCalculationRules.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="de.upb.mbse.taxcalculationexample.TaxCalculationRules.editors.documentProviders"
