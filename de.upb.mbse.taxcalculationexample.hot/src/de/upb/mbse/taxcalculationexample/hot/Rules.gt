@@ -1,7 +1,7 @@
 import "platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore"
 import "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
 
-rule allGreenNodesWithMissingAssignments() {
+rule addMissingAssignments() {
 	node: TGGRuleNode {
 		.bindingType == enum::CREATE
 		-type -> nodeType
@@ -45,4 +45,9 @@ pattern assignment {
 	}
 
 	attr: EAttribute
+}
+
+pattern anyNode(){
+	node: TGGRuleNode {
+	}
 }
