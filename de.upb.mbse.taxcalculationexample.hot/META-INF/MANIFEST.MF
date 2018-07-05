@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.upb.mbse.taxcalculationexample.hot
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.hot; singleton:
+ =true
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j,org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.emoflon.ibex.common,
+ org.emoflon.ibex.gt,
+ org.emoflon.ibex.gt.democles,
+ org.emoflon.ibex.tgg.core.language,
+ de.upb.mbse.taxcalculationexample.businessrules,
+ de.upb.mbse.taxcalculationexample.reporting,
+ org.junit,
+ org.junit.jupiter.api,
+ org.junit.jupiter.engine,
+ org.junit.jupiter.migrationsupport,
+ org.junit.jupiter.params,
+ org.junit.platform.commons,
+ org.junit.platform.engine,
+ org.junit.platform.launcher,
+ org.junit.platform.runner,
+ org.junit.platform.suite.api,
+ org.junit.vintage.engine,
+ org.hamcrest.core,
+ org.opentest4j,
+ org.apiguardian,
+ org.eclipse.emf.ecore
+Export-Package: de.upb.mbse.taxcalculationexample.hot.api,
+ de.upb.mbse.taxcalculationexample.hot.api.matches,
+ de.upb.mbse.taxcalculationexample.hot.api.rules
+Automatic-Module-Name: de.upb.mbse.taxcalculationexample.hot

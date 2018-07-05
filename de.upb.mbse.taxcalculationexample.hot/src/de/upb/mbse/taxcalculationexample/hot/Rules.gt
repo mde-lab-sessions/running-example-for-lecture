@@ -1,0 +1,48 @@
+import "platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+rule addMissingAssignments() {
+	node: TGGRuleNode {
+		.bindingType == enum::CREATE
+		-type -> nodeType
+		++ -attrExpr -> newExp
+	}
+
+	++ newExp: TGGInplaceAttributeExpression {
+		.operator := enum::EQUAL
+		++ -attribute -> attr
+		++ -valueExpr -> val
+	}
+
+	++ val: TGGLiteralExpression {
+		.value := "TODO: Fill in value"
+	}
+
+	nodeType: EClass {
+		-eAllAttributes -> attr
+	}
+
+	attr: EAttribute {
+		-eType -> attrType
+	}
+
+	attrType: EDataType {
+		.name == "EString"
+	}
+}
+when noAssignment
+
+condition noAssignment = forbid assignment
+
+pattern assignment {
+	node: TGGRuleNode {
+		-attrExpr -> expr
+	}
+
+	expr: TGGInplaceAttributeExpression {
+		.operator == enum::EQUAL
+		-attribute -> attr
+	}
+
+	attr: EAttribute
+}
