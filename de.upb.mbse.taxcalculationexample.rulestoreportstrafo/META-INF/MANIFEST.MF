@@ -3,8 +3,10 @@ Automatic-Module-Name: de.upb.mbse.taxcalculationexample.rulestoreport
  strafo
 Bundle-SymbolicName: de.upb.mbse.taxcalculationexample.rulestoreportst
  rafo;singleton:=true
-Export-Package: de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.matches,
- de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules
+Export-Package: de.upb.mbse.taxcalculationexample.rulestoreportstrafo.
+ api.matches,
+ de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api.rules,
+ de.upb.mbse.taxcalculationexample.rulestoreportstrafo.api
 Bundle-Name: de.upb.mbse.taxcalculationexample.rulestoreportstrafo
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.emoflon.ibex.common,

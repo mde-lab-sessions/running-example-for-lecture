@@ -2,7 +2,59 @@
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
 <project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs.ide"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.businessrules.cs.ui"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.hot"/>
 <project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.reporting"/>
+<project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.rulestoreportsintegration"/>
 <project reference="1.0,https://github.com/mde-lab-sessions/running-example-for-lecture.git,master,de.upb.mbse.taxcalculationexample.rulestoreportstrafo"/>
 </provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1540916725177_6" label="Abstract Syntax and Structural Semantics" name="Abstract Syntax and Structural Semantics">
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1540916696951_5" label="Concrete Syntax (Xtext)" name="Concrete Syntax (Xtext)">
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ide" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" id="1540916259032_0" label="Java Main Sources" name="main">
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting/gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting/injection" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.rulestoreportstrafo/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.rulestoreportstrafo/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ide/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ide/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ide/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ui/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ui/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.businessrules.cs.ui/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.hot/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.hot/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.rulestoreportsintegration/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1540916795280_8" label="M2M" name="M2M">
+<item elementID="=de.upb.mbse.taxcalculationexample.cheat.rulestoreportstrafo" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.rulestoreportsintegration" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.rulestoreportstrafo" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=de.upb.mbse.taxcalculationexample.hot" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1540916838873_9" label="M2T" name="M2T">
+<item elementID="=de.upb.mbse.taxcalculationexample.reporting" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
 </psf>
