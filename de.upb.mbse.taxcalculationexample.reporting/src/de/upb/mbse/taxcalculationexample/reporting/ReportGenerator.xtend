@@ -36,7 +36,7 @@ class ReportGenerator {
 		'''«IF rec.gender == GENDER.FEMALE»
 		Sehr geehrte Frau«ELSEIF rec.gender == GENDER.MALE»
 		Sehr geehrter Herr«ELSE»
-		Guten Tag,«ENDIF»«handleTitle(rec)»«rec.name» «rec.familyName»'''
+		Guten Tag«ENDIF»«handleTitle(rec)»«rec.name» «rec.familyName»'''
 	}
 
 	private def handleTitle(Recipient recipient) {
