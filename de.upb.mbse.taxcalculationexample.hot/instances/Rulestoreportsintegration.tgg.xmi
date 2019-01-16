@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.emoflon.ibex.tgg.core.language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.emoflon.ibex.tgg.core.language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/" xmlns:org.emoflon.ibex.tgg.core.language.csp="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#//csp" xmlns:org.emoflon.ibex.tgg.core.language.basic.expressions="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore#/basic/expressions" name="Rulestoreportsintegration">
+<language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore" name="Rulestoreportsintegration">
   <src href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#/"/>
   <trg href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#/"/>
-  <corr href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#/"/>
+  <corr href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#/"/>
   <rules name="CalculationResultsToReportingJobRule">
     <nodes name="bank" bindingType="CREATE" incomingEdges="//@rules.0/@edges.0">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Bank"/>
@@ -22,8 +22,8 @@
     <nodes name="job" domainType="TRG" bindingType="CREATE" incomingCorrsTarget="//@rules.0/@nodes.6">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//ReportingJob"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="r2j" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.5">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="r2j" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.1" target="//@rules.0/@nodes.5">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
     </nodes>
     <edges name="results__bank__bank_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.0/@nodes.1" trgNode="//@rules.0/@nodes.0">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Berechnungslauf/bank"/>
@@ -59,18 +59,18 @@
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report"/>
       <attrExpr>
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report/footer"/>
-        <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGLiteralExpression" value="&quot;Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns&quot;"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="&quot;Vorsitzender des Aufsichtsrats:  Charles Montgomery Plantagenet Schicklgruber Burns&quot;"/>
       </attrExpr>
       <attrExpr>
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report/header"/>
-        <valueExpr xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGLiteralExpression" value="&quot;BS:  The First Bank of Springfield&quot;"/>
+        <valueExpr xsi:type="language:TGGLiteralExpression" value="&quot;BS:  The First Bank of Springfield&quot;"/>
       </attrExpr>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="r2j" domainType="CORR" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.3">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="r2j" domainType="CORR" source="//@rules.1/@nodes.0" target="//@rules.1/@nodes.3">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2r" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.2" target="//@rules.1/@nodes.4">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="c2r" domainType="CORR" bindingType="CREATE" source="//@rules.1/@nodes.2" target="//@rules.1/@nodes.4">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
     </nodes>
     <edges name="run__bank__bank_eMoflonEdge" srcNode="//@rules.1/@nodes.0" trgNode="//@rules.1/@nodes.1">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Berechnungslauf/bank"/>
@@ -114,14 +114,14 @@
     <nodes name="e" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.2/@edges.8 //@rules.2/@edges.10" incomingCorrsTarget="//@rules.2/@nodes.12">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Event"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="r2j" domainType="CORR" source="//@rules.2/@nodes.6" target="//@rules.2/@nodes.7">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="r2j" domainType="CORR" source="//@rules.2/@nodes.6" target="//@rules.2/@nodes.7">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//RunToJob"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="d2r" domainType="CORR" source="//@rules.2/@nodes.2" target="//@rules.2/@nodes.8">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="d2r" domainType="CORR" source="//@rules.2/@nodes.2" target="//@rules.2/@nodes.8">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="a2e" domainType="CORR" bindingType="CREATE" source="//@rules.2/@nodes.5" target="//@rules.2/@nodes.9">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//ApplicationToEvent"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="a2e" domainType="CORR" bindingType="CREATE" source="//@rules.2/@nodes.5" target="//@rules.2/@nodes.9">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//ApplicationToEvent"/>
     </nodes>
     <edges name="bank__allDepots__depot_eMoflonEdge" srcNode="//@rules.2/@nodes.0" trgNode="//@rules.2/@nodes.2">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Bank/allDepots"/>
@@ -159,20 +159,20 @@
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.0 //@rules.2/@attributeConditionLibrary/@parameterValues.1 //@rules.2/@attributeConditionLibrary/@parameterValues.2 //@rules.2/@attributeConditionLibrary/@parameterValues.3"/>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.2/@attributeConditionLibrary/@parameterValues.4 //@rules.2/@attributeConditionLibrary/@parameterValues.5"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.csp:TGGAttributeVariable" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" name="prefix"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.3">
+      <parameterValues xsi:type="language:TGGAttributeVariable" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.0" name="prefix"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.3">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Anteil/amount"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.2" objectVar="//@rules.2/@nodes.1">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.2" objectVar="//@rules.2/@nodes.1">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Fond/name"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.3" objectVar="//@rules.2/@nodes.9">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.1/@parameterDefinitions.3" objectVar="//@rules.2/@nodes.9">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Event/description"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.4">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.2/@nodes.4">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Umsatz/date"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.9">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.2/@nodes.9">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Event/date"/>
       </parameterValues>
     </attributeConditionLibrary>
@@ -195,153 +195,80 @@
     </nodes>
     <attributeConditionLibrary>
       <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.4/@attributeConditionLibrary/@parameterValues.0 //@rules.4/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;Gewinn: &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.csp:TGGAttributeVariable" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" name="prefix"/>
+      <parameterValues xsi:type="language:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;Gewinn: &quot;"/>
+      <parameterValues xsi:type="language:TGGAttributeVariable" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" name="prefix"/>
     </attributeConditionLibrary>
   </rules>
   <rules name="GewinnToEventSharedFondRule" refines="//@rules.4 //@rules.3">
     <attributeConditionLibrary/>
   </rules>
-  <rules name="VerlustToEventRule" refines="//@rules.2">
-    <nodes name="item" bindingType="CREATE">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Verlust"/>
-    </nodes>
-    <attributeConditionLibrary>
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGLiteralExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" value="&quot;Verlust: &quot;"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.csp:TGGAttributeVariable" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" name="prefix"/>
-    </attributeConditionLibrary>
-  </rules>
-  <rules name="VerlustToEventSharedFondRule" refines="//@rules.6 //@rules.3">
-    <attributeConditionLibrary/>
-  </rules>
   <rules name="ClientToRecipientRule" abstract="true">
-    <nodes name="bank" outgoingEdges="//@rules.8/@edges.0">
+    <nodes name="bank" outgoingEdges="//@rules.6/@edges.0">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Bank"/>
     </nodes>
-    <nodes name="c" bindingType="CREATE" incomingEdges="//@rules.8/@edges.0 //@rules.8/@edges.6" outgoingEdges="//@rules.8/@edges.1" incomingCorrsSource="//@rules.8/@nodes.8">
+    <nodes name="c" bindingType="CREATE" incomingEdges="//@rules.6/@edges.0 //@rules.6/@edges.6" outgoingEdges="//@rules.6/@edges.1" incomingCorrsSource="//@rules.6/@nodes.8">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde"/>
     </nodes>
-    <nodes name="d" incomingEdges="//@rules.8/@edges.1" outgoingEdges="//@rules.8/@edges.6" incomingCorrsSource="//@rules.8/@nodes.7">
+    <nodes name="d" incomingEdges="//@rules.6/@edges.1" outgoingEdges="//@rules.6/@edges.6" incomingCorrsSource="//@rules.6/@nodes.7">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Depot"/>
     </nodes>
-    <nodes name="job" domainType="TRG" outgoingEdges="//@rules.8/@edges.2 //@rules.8/@edges.3">
+    <nodes name="job" domainType="TRG" outgoingEdges="//@rules.6/@edges.2 //@rules.6/@edges.3">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//ReportingJob"/>
     </nodes>
-    <nodes name="r" domainType="TRG" incomingEdges="//@rules.8/@edges.2" outgoingEdges="//@rules.8/@edges.4" incomingCorrsTarget="//@rules.8/@nodes.7">
+    <nodes name="r" domainType="TRG" incomingEdges="//@rules.6/@edges.2" outgoingEdges="//@rules.6/@edges.4" incomingCorrsTarget="//@rules.6/@nodes.7">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report"/>
     </nodes>
-    <nodes name="rec" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.8/@edges.3 //@rules.8/@edges.4" outgoingEdges="//@rules.8/@edges.5" incomingCorrsTarget="//@rules.8/@nodes.8">
+    <nodes name="rec" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.6/@edges.3 //@rules.6/@edges.4" outgoingEdges="//@rules.6/@edges.5" incomingCorrsTarget="//@rules.6/@nodes.8">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient"/>
     </nodes>
-    <nodes name="a" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.8/@edges.5">
+    <nodes name="a" domainType="TRG" bindingType="CREATE" incomingEdges="//@rules.6/@edges.5">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Address"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="d2r" domainType="CORR" source="//@rules.8/@nodes.2" target="//@rules.8/@nodes.4">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="d2r" domainType="CORR" source="//@rules.6/@nodes.2" target="//@rules.6/@nodes.4">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
     </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2r" domainType="CORR" bindingType="CREATE" source="//@rules.8/@nodes.1" target="//@rules.8/@nodes.5">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//ClientToRecipient"/>
+    <nodes xsi:type="language:TGGRuleCorr" name="c2r" domainType="CORR" bindingType="CREATE" source="//@rules.6/@nodes.1" target="//@rules.6/@nodes.5">
+      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//ClientToRecipient"/>
     </nodes>
-    <edges name="bank__kunden__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.0" trgNode="//@rules.8/@nodes.1">
+    <edges name="bank__kunden__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.0" trgNode="//@rules.6/@nodes.1">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Bank/kunden"/>
     </edges>
-    <edges name="c__depots__d_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.1" trgNode="//@rules.8/@nodes.2">
+    <edges name="c__depots__d_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.1" trgNode="//@rules.6/@nodes.2">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde/depots"/>
     </edges>
-    <edges name="job__reports__r_eMoflonEdge" domainType="TRG" srcNode="//@rules.8/@nodes.3" trgNode="//@rules.8/@nodes.4">
+    <edges name="job__reports__r_eMoflonEdge" domainType="TRG" srcNode="//@rules.6/@nodes.3" trgNode="//@rules.6/@nodes.4">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//ReportingJob/reports"/>
     </edges>
-    <edges name="job__recipients__rec_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.8/@nodes.3" trgNode="//@rules.8/@nodes.5">
+    <edges name="job__recipients__rec_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.3" trgNode="//@rules.6/@nodes.5">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//ReportingJob/recipients"/>
     </edges>
-    <edges name="r__recipients__rec_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.8/@nodes.4" trgNode="//@rules.8/@nodes.5">
+    <edges name="r__recipients__rec_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.4" trgNode="//@rules.6/@nodes.5">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report/recipients"/>
     </edges>
-    <edges name="rec__postalAddress__a_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.8/@nodes.5" trgNode="//@rules.8/@nodes.6">
+    <edges name="rec__postalAddress__a_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.6/@nodes.5" trgNode="//@rules.6/@nodes.6">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient/postalAddress"/>
     </edges>
-    <edges name="d__kunden__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.8/@nodes.2" trgNode="//@rules.8/@nodes.1">
+    <edges name="d__kunden__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.6/@nodes.2" trgNode="//@rules.6/@nodes.1">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Depot/kunden"/>
     </edges>
     <attributeConditionLibrary>
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.0 //@rules.8/@attributeConditionLibrary/@parameterValues.1"/>
-      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.8/@attributeConditionLibrary/@parameterValues.2 //@rules.8/@attributeConditionLibrary/@parameterValues.3"/>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.1">
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.0 //@rules.6/@attributeConditionLibrary/@parameterValues.1"/>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2" parameters="//@rules.6/@attributeConditionLibrary/@parameterValues.2 //@rules.6/@attributeConditionLibrary/@parameterValues.3"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.1">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde/firstName"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.5">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.5">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient/name"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" objectVar="//@rules.8/@nodes.1">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.0" objectVar="//@rules.6/@nodes.1">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde/lastName"/>
       </parameterValues>
-      <parameterValues xsi:type="org.emoflon.ibex.tgg.core.language.basic.expressions:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.8/@nodes.5">
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.2/@parameterDefinitions.1" objectVar="//@rules.6/@nodes.5">
         <attribute href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient/familyName"/>
       </parameterValues>
     </attributeConditionLibrary>
   </rules>
-  <rules name="ExistingClientToRecipientRule">
-    <nacs name="NotYetClientOfDepot">
-      <nodes name="c" outgoingEdges="//@rules.9/@nacs.0/@edges.0">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde"/>
-      </nodes>
-      <nodes name="d" incomingEdges="//@rules.9/@nacs.0/@edges.0">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Depot"/>
-      </nodes>
-      <edges name="c__depots__d_eMoflonEdge" srcNode="//@rules.9/@nacs.0/@nodes.0" trgNode="//@rules.9/@nacs.0/@nodes.1">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde/depots"/>
-      </edges>
-      <attributeConditionLibrary/>
-    </nacs>
-    <nacs name="NotYetRecipientOfReport">
-      <nodes name="r" domainType="TRG" outgoingEdges="//@rules.9/@nacs.1/@edges.0">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report"/>
-      </nodes>
-      <nodes name="rec" domainType="TRG" incomingEdges="//@rules.9/@nacs.1/@edges.0">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient"/>
-      </nodes>
-      <edges name="r__recipients__rec_eMoflonEdge" domainType="TRG" srcNode="//@rules.9/@nacs.1/@nodes.0" trgNode="//@rules.9/@nacs.1/@nodes.1">
-        <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report/recipients"/>
-      </edges>
-      <attributeConditionLibrary/>
-    </nacs>
-    <nodes name="c" incomingEdges="//@rules.9/@edges.2" outgoingEdges="//@rules.9/@edges.0" incomingCorrsSource="//@rules.9/@nodes.5">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde"/>
-    </nodes>
-    <nodes name="d" incomingEdges="//@rules.9/@edges.0" outgoingEdges="//@rules.9/@edges.2" incomingCorrsSource="//@rules.9/@nodes.4">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Depot"/>
-    </nodes>
-    <nodes name="r" domainType="TRG" outgoingEdges="//@rules.9/@edges.1" incomingCorrsTarget="//@rules.9/@nodes.4">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report"/>
-    </nodes>
-    <nodes name="rec" domainType="TRG" incomingEdges="//@rules.9/@edges.1" incomingCorrsTarget="//@rules.9/@nodes.5">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Recipient"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="d2r" domainType="CORR" source="//@rules.9/@nodes.1" target="//@rules.9/@nodes.2">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//DepotToReport"/>
-    </nodes>
-    <nodes xsi:type="org.emoflon.ibex.tgg.core.language:TGGRuleCorr" name="c2r" domainType="CORR" source="//@rules.9/@nodes.0" target="//@rules.9/@nodes.3">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.cheat.rulestoreportsintegration/model/Rulestoreportsintegration.ecore#//ClientToRecipient"/>
-    </nodes>
-    <edges name="c__depots__d_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.0" trgNode="//@rules.9/@nodes.1">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Kunde/depots"/>
-    </edges>
-    <edges name="r__recipients__rec_eMoflonEdge" domainType="TRG" bindingType="CREATE" srcNode="//@rules.9/@nodes.2" trgNode="//@rules.9/@nodes.3">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.reporting/model/Reporting.ecore#//Report/recipients"/>
-    </edges>
-    <edges name="d__kunden__c_eMoflonEdge" bindingType="CREATE" srcNode="//@rules.9/@nodes.1" trgNode="//@rules.9/@nodes.0">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Depot/kunden"/>
-    </edges>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="SteuerAuslaenderToRecipientRule" refines="//@rules.8">
-    <nodes name="c" bindingType="CREATE">
-      <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Steuerauslaender"/>
-    </nodes>
-    <attributeConditionLibrary/>
-  </rules>
-  <rules name="SteuerInlaenderToRecipientRule" refines="//@rules.8">
+  <rules name="SteuerInlaenderToRecipientRule" refines="//@rules.6">
     <nodes name="c" bindingType="CREATE">
       <type href="platform:/resource/de.upb.mbse.taxcalculationexample.businessrules/model/Businessrules.ecore#//Steuerinlaender"/>
     </nodes>
@@ -501,4 +428,4 @@
       </genAdornments>
     </tggAttributeConstraintDefinitions>
   </attributeConstraintDefinitionLibrary>
-</org.emoflon.ibex.tgg.core.language:TGG>
+</language:TGG>

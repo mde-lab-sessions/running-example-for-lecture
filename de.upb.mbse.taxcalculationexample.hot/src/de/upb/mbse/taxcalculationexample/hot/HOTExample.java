@@ -17,6 +17,7 @@ import businessrules.BusinessrulesPackage;
 import de.upb.mbse.taxcalculationexample.hot.api.HotAPI;
 import de.upb.mbse.taxcalculationexample.hot.api.HotDemoclesApp;
 import reporting.ReportingPackage;
+import runtime.RuntimePackage;
 
 public class HOTExample extends HotDemoclesApp {
 
@@ -36,6 +37,7 @@ public class HOTExample extends HotDemoclesApp {
 
 		getModel().getResources().add(BusinessrulesPackage.eINSTANCE.eResource());
 		getModel().getResources().add(ReportingPackage.eINSTANCE.eResource());
+		getModel().getResources().add(RuntimePackage.eINSTANCE.eResource());
 		getModel().getResources().add(EcorePackage.eINSTANCE.eResource());
 
 		// Initialise and apply rules
@@ -59,6 +61,6 @@ public class HOTExample extends HotDemoclesApp {
 
 		HOTExample hot = new HOTExample();
 
-		assertEquals(17, hot.addMissingAssignments());
+		assertEquals(15, hot.addMissingAssignments());
 	}
 }
