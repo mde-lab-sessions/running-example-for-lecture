@@ -32,5 +32,6 @@ Require-Bundle: org.apache.log4j,
  org.gervarro.plan.dynprog,
  org.emoflon.ibex.tgg.runtime.democles,
  de.upb.mbse.taxcalculationexample.reporting,
- de.upb.mbse.taxcalculationexample.businessrules
+ de.upb.mbse.taxcalculationexample.businessrules,
+ org.eclipse.xtext.xbase;bundle-version="2.14.0"
 Automatic-Module-Name: de.upb.mbse.taxcalculationexample.rulestoreportsintegration

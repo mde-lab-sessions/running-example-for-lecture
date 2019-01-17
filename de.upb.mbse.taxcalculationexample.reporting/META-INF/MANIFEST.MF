@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.xtext.xbase;bundle-version="2.14.0"
 Export-Package: de.upb.mbse.taxcalculationexample.reporting,
  reporting,
  reporting.impl,
